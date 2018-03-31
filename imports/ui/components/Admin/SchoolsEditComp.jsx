@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Link } from 'react-router-dom';
-import Schools from '../../../api/schools';
+import Schools from '../../../api/schools/schools';
+
 
 export default class SchoolsPage extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ export default class SchoolsPage extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const name = document.getElementById('school-name').value;
+    const address = document.getElementById('school-address').value;
     const suburb = document.getElementById('school-suburb').value;
     const city = document.getElementById('school-city').value;
     const type = document.getElementById('school-type').value;
@@ -25,15 +27,19 @@ export default class SchoolsPage extends Component {
     });
     const schoolInfo = {
       name,
+      address,
       suburb,
       city,
       type,
       website,
     };
-    const FEEDBACK = Schools.simpleSchema().namedContext().validate(schoolInfo, {modifier: false});
-    //.validate({ emails: email, password, profile}, {modifier: false});
-    console.log('FEEDBACK:',FEEDBACK)
-
+    Meteor.call('insertSchool', schoolInfo, (err, result) => {
+      if (err) {
+        console.log('ERR:', err);
+      } else {
+        console.log('RESULT:', result);
+      }
+    });
   }
 
   render() {
@@ -63,6 +69,14 @@ export default class SchoolsPage extends Component {
                     id="school-name"
                     className="form-control input-lg"
                     placeholder="name"
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    id="school-address"
+                    className="form-control input-lg"
+                    placeholder="address"
                   />
                 </div>
                 <div className="form-group">

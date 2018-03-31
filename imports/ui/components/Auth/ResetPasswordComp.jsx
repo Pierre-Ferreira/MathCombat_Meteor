@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
 import AuthFeedbackMessageComp from './AuthFeedbackMessageComp';
 
-export default class ResetPassword extends Component {
+export default class ResetPasswordComp extends Component {
   constructor(props) {
     super(props);
     this.state = {

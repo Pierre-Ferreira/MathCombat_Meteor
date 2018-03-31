@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { connect } from 'react-redux-meteor';
 import { push } from 'react-router-redux';
-import PublicNavigationLinksComp from '../../components/Navbar/PublicNavigationLinksComp';
+import ForgotPasswordComp from '../../components/Auth/ForgotPasswordComp';
 
 const mapTrackerToProps = (state, props) => {
   const loggingIn = Meteor.loggingIn();
@@ -19,8 +19,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    toLoginPage: () => dispatch(push('/auth/login')),
   };
 }
 
-export default connect(mapTrackerToProps, mapStateToProps, mapDispatchToProps)(PublicNavigationLinksComp);
+export default connect(mapTrackerToProps, mapStateToProps, mapDispatchToProps)(ForgotPasswordComp);

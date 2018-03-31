@@ -4,7 +4,10 @@ import { push } from 'react-router-redux';
 import WelcomeComp from '../../components/Main/WelcomeComp';
 
 const mapTrackerToProps = (state, props) => {
+  const loggingIn = Meteor.loggingIn();
   return {
+    loggingIn,
+    authenticated: !loggingIn && !!Meteor.userId(),
     currentUser: Meteor.user(),
   };
 };
@@ -16,7 +19,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    toLoginPage: () => dispatch(push('/login')),
+    toLoginPage: () => dispatch(push('/auth/login')),
   };
 }
 

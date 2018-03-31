@@ -9,10 +9,12 @@ import SchoolsEditComp from '../Admin/SchoolsEditComp';
 // components
 import HomepageComp from '../Main/HomepageComp';
 import WelcomeComp from '../../containers/Main/WelcomeContainer';
-import SignupComp from '../Auth/SignupComp';
-import LoginComp from '../Auth/LoginComp';
-import ResetPasswordComp from '../Auth/ResetPasswordComp';
-import ForgotPasswordComp from '../Auth/ForgotPasswordComp';
+import SignupContainer from '../../containers/Auth/SignupContainer';
+import LoginContainer from '../../containers/Auth/LoginContainer';
+import ResetPasswordContainer from '../../containers/Auth/ResetPasswordContainer';
+import ForgotPasswordContainer from '../../containers/Auth/ForgotPasswordContainer';
+import AuthenticatedRouteComp from '../Routes/AuthenticatedRouteComp';
+import PublicRouteComp from '../Routes/PublicRouteComp';
 // import { withHistory, Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
@@ -32,12 +34,12 @@ export default class MainPage extends Component {
           <div>
             <Switch>
               <Route exact path="/" component={HomepageComp} />
-              <Route path="/admin/schools_edit" component={SchoolsEditComp} />
-              <Route path="/auth/login" component={LoginComp} />
-              <Route path="/auth/signup" component={SignupComp} />
-              <Route path="/auth/forgot_password" component={ForgotPasswordComp} />
-              <Route path="/auth/reset-password/:token" component={ResetPasswordComp} />
-              <Route path="/main/welcome" component={WelcomeComp} />
+              <AuthenticatedRouteComp exact path="/admin/schools_edit" component={SchoolsEditComp} {...this.props} />
+              <PublicRouteComp exact path="/auth/login" component={LoginContainer} {...this.props} />
+              <PublicRouteComp exact path="/auth/signup" component={SignupContainer} {...this.props} />
+              <PublicRouteComp exact path="/auth/forgot_password" component={ForgotPasswordContainer} {...this.props} />
+              <PublicRouteComp exact path="/auth/reset-password/:token" component={ResetPasswordContainer} {...this.props} />
+              <AuthenticatedRouteComp exact path="/main/welcome" component={WelcomeComp} {...this.props} />
               {/* <Route exact path="/" component={AppContainer} /> */}
             </Switch>
             {/* <ModalRoute component={LoginComp} path="/auth/login" className="test-modal test-modal-foo" />
