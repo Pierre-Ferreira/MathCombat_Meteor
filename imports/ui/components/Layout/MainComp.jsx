@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Container } from 'reactstrap';
-import { ModalContainer, ModalRoute } from 'react-router-modal';
 import 'react-router-modal/css/react-router-modal.css';
-import SchoolsEditComp from '../Admin/SchoolsEditComp';
+import SchoolCreateComp from '../Admin/SchoolCreateComp';
 // import TablesMainComp from './components/TablesModule/TablesMainComp';
 // import SumsMainComp from './components/SumsModule/SumsMainComp';
 // components
@@ -34,7 +33,7 @@ export default class MainPage extends Component {
           <div>
             <Switch>
               <Route exact path="/" component={HomepageComp} />
-              <AuthenticatedRouteComp exact path="/admin/schools_edit" component={SchoolsEditComp} {...this.props} />
+              <AuthenticatedRouteComp exact path="/admin/school_create" component={SchoolCreateComp} {...this.props} />
               <PublicRouteComp exact path="/auth/login" component={LoginContainer} {...this.props} />
               <PublicRouteComp exact path="/auth/signup" component={SignupContainer} {...this.props} />
               <PublicRouteComp exact path="/auth/forgot_password" component={ForgotPasswordContainer} {...this.props} />
@@ -42,10 +41,6 @@ export default class MainPage extends Component {
               <AuthenticatedRouteComp exact path="/main/welcome" component={WelcomeComp} {...this.props} />
               {/* <Route exact path="/" component={AppContainer} /> */}
             </Switch>
-            {/* <ModalRoute component={LoginComp} path="/auth/login" className="test-modal test-modal-foo" />
-            <ModalRoute component={SignupComp} path="/auth/signup" className="test-modal test-modal-foo" />
-            <ModalRoute component={SchoolsEditComp} path="/admin/schools_edit" className="test-modal test-modal-foo" />
-            <ModalContainer /> */}
           </div>
         </Container>
       </div>

@@ -30,7 +30,7 @@ export default class AuthenticatedNavigationLinksComp extends Component {
     return (
       <Nav className="ml-auto" navbar>
         <NavItem>
-          <NavLink to="/admin/schools_edit">Schools</NavLink>
+          <NavLink to="/admin/school_create">Schools</NavLink>
         </NavItem>
         <UncontrolledDropdown nav inNavbar>
           <DropdownToggle nav caret>

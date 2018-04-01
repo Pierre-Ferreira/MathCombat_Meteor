@@ -1,10 +1,6 @@
-// import { Meteor } from 'meteor/meteor';
 import SimpleSchema from 'simpl-schema';
 
-const Schools = new Mongo.Collection('schools');
-const Schema = {};
-
-Schema.Schools = new SimpleSchema({
+const SchoolsSchema = new SimpleSchema({
   name: {
     type: String,
     optional: false,
@@ -35,7 +31,12 @@ Schema.Schools = new SimpleSchema({
     // regEx: SimpleSchema.RegEx.Url,
     optional: true,
   },
+  createdAt: {
+    type: Date,
+  },
+  updatedAt: {
+    type: Date,
+  },
 });
 
-Schools.attachSchema(Schema.Schools);
-export default Schools;
+export default SchoolsSchema;

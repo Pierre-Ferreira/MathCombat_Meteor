@@ -29,7 +29,8 @@
     "redux-thunk": "^2.2.0",
     "simpl-schema": "^1.4.2",
     "uniforms": "^1.23.2",
-    "uniforms-bootstrap4": "^1.23.2"
+    "uniforms-bootstrap4": "^1.23.2",
+    "uniforms-unstyled": "^1.23.2"
   },
   "devDependencies": {
     "@meteorjs/eslint-config-meteor": "^1.0.5",
