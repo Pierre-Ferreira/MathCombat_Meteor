@@ -18,7 +18,7 @@ Meteor.methods({
   },
   'school.edit': (_id, data) => {
     const school = Schools.find({ _id }).fetch()[0];
-    if (Meteor.userId !== school.userId) {
+    if (Meteor.userId() !== school.userId) {
       throw new Meteor.Error('error', 'Cannot edit the school', {
         why: 'User does not own the school',
       });

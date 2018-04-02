@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import 'react-router-modal/css/react-router-modal.css';
 import SchoolCreateComp from '../Admin/SchoolCreateComp';
+import SchoolEditComp from '../Admin/SchoolEditComp';
+import SchoolListComp from '../Admin/SchoolListComp';
 // import TablesMainComp from './components/TablesModule/TablesMainComp';
 // import SumsMainComp from './components/SumsModule/SumsMainComp';
 // components
@@ -34,6 +36,8 @@ export default class MainPage extends Component {
             <Switch>
               <Route exact path="/" component={HomepageComp} />
               <AuthenticatedRouteComp exact path="/admin/school_create" component={SchoolCreateComp} {...this.props} />
+              <AuthenticatedRouteComp exact path="/admin/school_edit/:_id" component={SchoolEditComp} {...this.props} />
+              <AuthenticatedRouteComp exact path="/admin/school_list" component={SchoolListComp} {...this.props} />
               <PublicRouteComp exact path="/auth/login" component={LoginContainer} {...this.props} />
               <PublicRouteComp exact path="/auth/signup" component={SignupContainer} {...this.props} />
               <PublicRouteComp exact path="/auth/forgot_password" component={ForgotPasswordContainer} {...this.props} />

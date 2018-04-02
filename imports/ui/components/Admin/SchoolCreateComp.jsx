@@ -17,8 +17,8 @@ export default class SchoolCreateComp extends Component {
         console.log('There was an error: ', err.reason, err.details);
         this.setState({ feedbackMsg: `There was an error: ${err.reason} (${err.details.why})` });
       } else {
-        console.log('Post Created');
-        this.setState({ feedbackMsg: 'Post Created' });
+        console.log('School Created');
+        this.setState({ feedbackMsg: 'School Created' });
         // route.go('post_list');
       }
     });
