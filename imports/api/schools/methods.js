@@ -4,7 +4,7 @@ import './hooks';
 
 Meteor.methods({
   'school.create': (data) => {
-    if (!Meteor.userId) {
+    if (!Meteor.userId()) {
       throw new Meteor.Error('error', 'Cannot create a new school', {
         why: 'User not logged in',
       });
@@ -30,7 +30,7 @@ Meteor.methods({
   },
   'school.remove': (_id) => {
     const school = Schools.find({ _id }).fetch()[0];
-    if (Meteor.userId !== school.userId) {
+    if (Meteor.userId() !== school.userId) {
       throw new Meteor.Error('error', 'Cannot delete the school', {
         why: 'User does not own the school',
       });

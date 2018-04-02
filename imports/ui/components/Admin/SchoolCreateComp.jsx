@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import SchoolCreateForm from '../../forms/schools/SchoolCreateForm';
-// import route from "../../../routing/router";
 
 export default class SchoolCreateComp extends Component {
   constructor(props) {
@@ -19,7 +18,7 @@ export default class SchoolCreateComp extends Component {
       } else {
         console.log('School Created');
         this.setState({ feedbackMsg: 'School Created' });
-        // route.go('post_list');
+        this.props.history.push('/admin/school_list');
       }
     });
   }
@@ -27,7 +26,7 @@ export default class SchoolCreateComp extends Component {
   render() {
     return (
       <div>
-        <h4>{this.state.feedbackMsg}</h4>
+        {this.state.feedbackMsg ? <h4>{this.state.feedbackMsg}</h4> : ''}
         <SchoolCreateForm
           onSubmit={this.onSubmit}
         />

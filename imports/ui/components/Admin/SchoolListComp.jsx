@@ -1,27 +1,45 @@
 import { Meteor } from 'meteor/meteor';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 // import route from '/imports/routing/router.js';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import Schools from '../../../api/schools/collection'
 import moment from "moment/moment";
 
-class PostList extends Component {
+export default class SchoolListComp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { feedbackMsg: '' };
+    this.addButtonHandler = this.addButtonHandler.bind(this);
+    this.editButtonHandler = this.editButtonHandler.bind(this);
+    this.removeButtonHandler = this.removeButtonHandler.bind(this);
+  }
+
+  addButtonHandler() {
+    this.props.history.push('/admin/school_create');
+  }
+
+  editButtonHandler(_id) {
+    this.props.history.push(`/admin/school_edit/${_id}`);
+  }
+
+  removeButtonHandler(_id, schoolName) {
+    if (confirm(`Are you sure you want to delete school '${schoolName}'?`)) {
+      Meteor.call('school.remove', _id);
+      this.setState({ feedbackMsg: `School '${schoolName}' deleted!` });
+    }
+  }
 
   render() {
-
-    const removeButtonHandler = (_id) => {
-      Meteor.call('school.remove', _id);
-    };
-
     const { loading, schools } = this.props;
-
     if (loading) {
-      return <div>Waiting for the method</div>
+      return <div>Waiting for the method</div>;
     }
-
     return (
       <div className="flex-container">
+        {this.state.feedbackMsg ? <h2>{this.state.feedbackMsg}</h2> : ''}
+        <button onClick={() => this.addButtonHandler()}>
+          Add New
+        </button>
         {
           schools.map(school => {
             return (
@@ -33,12 +51,13 @@ class PostList extends Component {
                   school.userId === Meteor.userId() ?
                     <div>
                       <br/>
-                      {/* <a href={route.path('school_edit', {_id: school._id})}>Edit</a> */}
-                      <Link to={`/admin/school_edit/${school._id}`}>Edit</Link>
+                      {/* <Link to={`/admin/school_edit/${school._id}`}>Edit</Link> */}
+                      <button onClick={() => this.editButtonHandler(school._id)}>
+                        Edit
+                      </button>
                       <br/>
-                      <button onClick={() => {
-                        removeButtonHandler(school._id);
-                      }}>Remove
+                      <button onClick={() => this.removeButtonHandler(school._id, school.name)}>
+                        Remove
                       </button>
                       <br/>
                     </div> : null
@@ -51,14 +70,3 @@ class PostList extends Component {
     )
   }
 }
-
-export default withTracker(props => {
-  const handle = Meteor.subscribe('schools');
-
-  return {
-    loading: !handle.ready(),
-    schools: Schools.find({}, {
-      sort: { createdAt: -1 },
-    }).fetch(),
-  }
-})(PostList);

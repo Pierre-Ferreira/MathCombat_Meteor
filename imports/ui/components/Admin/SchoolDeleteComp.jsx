@@ -15,7 +15,7 @@ export default class SchoolDeleteComp extends Component {
         console.log('There was an error: ', err.reason, err.details);
         this.setState({ deleting: 'Remove error' });
       } else {
-        this.setState({ deleting: 'Post successfully removed' });
+        this.setState({ deleting: 'School successfully removed' });
       }
     });
   }

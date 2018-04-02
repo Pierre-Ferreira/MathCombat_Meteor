@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
-import { withTracker } from 'meteor/react-meteor-data';
 import SchoolEditForm from '../../forms/schools/SchoolEditForm';
 
 export default class SchoolEditComp extends Component {
@@ -31,7 +30,7 @@ export default class SchoolEditComp extends Component {
       } else {
         console.log('School Updated');
         this.setState({ feedbackMsg: 'School Updated' });
-        // route.go('school_list');
+        this.props.history.push('/admin/school_list');
       }
     });
   }
@@ -39,7 +38,7 @@ export default class SchoolEditComp extends Component {
   render() {
     return (
       <div>
-        <h4>{this.state.feedbackMsg}</h4>
+        {this.state.feedbackMsg ? <h4>{this.state.feedbackMsg}</h4> : ''}
         <SchoolEditForm
           onSubmit={this.onSubmit}
           model={this.state.model}
