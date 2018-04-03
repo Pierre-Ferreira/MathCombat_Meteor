@@ -1,19 +1,19 @@
 import React from 'react';
 import { AutoForm } from 'uniforms-bootstrap4';
 import SubmitField from 'uniforms-bootstrap4/SubmitField';
-import SchoolsSchema from '../../../api/schools/schema';
+import PlayersSchema from '../../../api/players/schema';
 
 const EditField = props =>
   <SubmitField value="Update" />;
 
-const SchoolEditForm = ({ onSubmit, model = {} }) => (
+const PlayerEditForm = ({ onSubmit, model = {} }) => (
   <AutoForm
     onSubmit={onSubmit}
-    schema={SchoolsSchema.pick('name', 'address', 'suburb', 'city', 'country', 'type', 'website', 'active')}
+    schema={PlayersSchema.pick('name', 'surname', 'school', 'grade', 'birthday')}
     submitField={EditField}
     model={model}
     showInlineError
   />
 );
 
-export default SchoolEditForm;
+export default PlayerEditForm;

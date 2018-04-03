@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 /* Imports for server-side startup go here. */
+import '../../api/players/methods';
+import '../../api/players/publications';
 import '../../api/schools/methods';
 import '../../api/schools/publications';
 

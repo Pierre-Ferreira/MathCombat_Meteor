@@ -57,7 +57,7 @@ export default class AuthenticatedNavigationLinksComp extends Component {
           </DropdownMenu>
         </UncontrolledDropdown>
         <NavItem>
-          <NavLink to="/auth/login" onClick={this.logoutFN}>Logout</NavLink>
+          <a onClick={this.logoutFN}>Logout</a>
         </NavItem>
       </Nav>
     );

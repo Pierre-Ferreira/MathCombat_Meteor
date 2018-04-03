@@ -1,7 +1,12 @@
 import * as types from '../constants/ActionTypes';
 
-// const questionsAnswered = 0;
+// Player Actiontypes.
+export const setPlayerID = playerID => ({
+  type: types.SET_PLAYER_ID,
+  playerID,
+});
 
+// Game actiontypes.
 export const saveGameSettings = (
   gameNoOfQuestions,
   gameTable,

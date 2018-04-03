@@ -19,17 +19,22 @@ const SchoolsSchema = new SimpleSchema({
   },
   country: {
     type: String,
-    optional: true,
+    optional: false,
   },
   type: {
     type: String,
     allowedValues: ['Primary', 'Secondary', 'Other'],
-    optional: true,
+    optional: false,
   },
   website: {
     type: String,
     // regEx: SimpleSchema.RegEx.Url,
     optional: true,
+  },
+  active: {
+    type: Boolean,
+    defaultValue: true,
+    optional: false,
   },
   createdAt: {
     type: Date,

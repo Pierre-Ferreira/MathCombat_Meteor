@@ -1,19 +1,19 @@
 import React from 'react';
 import { AutoForm } from 'uniforms-bootstrap4';
 import SubmitField from 'uniforms-bootstrap4/SubmitField';
-import SchoolsSchema from '../../../api/schools/schema';
+import PlayersSchema from '../../../api/players/schema';
 
 const CreateField = props =>
   <SubmitField value="Create" />;
 
-const SchoolCreateForm = ({ onSubmit, model = {} }) => (
+const PlayerCreateForm = ({ onSubmit, model = {} }) => (
   <AutoForm
     onSubmit={onSubmit}
     model={model}
-    schema={SchoolsSchema.pick('name', 'address', 'suburb', 'city', 'country', 'type', 'website', 'active')}
+    schema={PlayersSchema.pick('name', 'surname', 'school', 'grade', 'birthday')}
     submitField={CreateField}
     showInlineError
   />
 );
 
-export default SchoolCreateForm;
+export default PlayerCreateForm;

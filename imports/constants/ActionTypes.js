@@ -1,4 +1,6 @@
-
+// Player Constants.
+export const SET_PLAYER_ID = 'SET_PLAYER_ID';
+// Game Constants.
 export const SAVE_GAME_SETTINGS = 'SAVE_GAME_SETTINGS';
 export const SAVE_ANSWER_INFO = 'SAVE_ANSWER_INFO';
 export const END_GAME = 'END_GAME';

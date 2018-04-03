@@ -1,18 +1,18 @@
 import { Meteor } from 'meteor/meteor';
 import { connect } from 'react-redux-meteor';
-import SchoolListComp from '../../components/Admin/SchoolListComp';
-import Schools from '../../../api/schools/collection';
+import PlayerSelectComp from '../../components/Player/PlayerSelectComp';
+import Players from '../../../api/players/collection';
 
 
 const mapTrackerToProps = (state, props) => {
-  const handle = Meteor.subscribe('schools');
+  const handle = Meteor.subscribe('players');
   const loggingIn = Meteor.loggingIn();
   return {
     loggingIn,
     authenticated: !loggingIn && !!Meteor.userId(),
     currentUser: Meteor.user(),
     loading: !handle.ready(),
-    schools: Schools.find({}, {
+    players: Players.find({}, {
       sort: { createdAt: -1 },
     }).fetch(),
   };
@@ -25,7 +25,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    setPlayerID: playerID => dispatch({ type: 'SET_PLAYER_ID', playerID }),
   };
 }
 
-export default connect(mapTrackerToProps, mapStateToProps, mapDispatchToProps)(SchoolListComp);
+export default connect(mapTrackerToProps, mapStateToProps, mapDispatchToProps)(PlayerSelectComp);
