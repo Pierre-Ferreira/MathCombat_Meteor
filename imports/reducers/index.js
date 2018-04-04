@@ -4,14 +4,14 @@ import gameSettings from './GameSettings';
 import gameAnswers from './GameAnswers';
 import gameCurrentAnswer from './GameCurrentAnswer';
 import gameScore from './GameScore';
-import playerID from './PlayerID';
+import playerInfo from './PlayerInfo';
 
 const gameInfo = combineReducers({
   gameSettings,
   gameAnswers,
   gameCurrentAnswer,
   gameScore,
-  playerID,
+  playerInfo,
   routing: routerReducer,
 });
 

@@ -10,8 +10,8 @@ const AuthenticatedRouteComp = ({
   <Route
     {...rest}
     render={(props) => {
-      if (loggingIn) return <div />;
-      return authenticated ?
+      // if (loggingIn) return <div />;
+      return (authenticated || loggingIn) ?
       (React.createElement(component, { ...props, loggingIn, authenticated })) :
       (<Redirect to="/" />);
     }}

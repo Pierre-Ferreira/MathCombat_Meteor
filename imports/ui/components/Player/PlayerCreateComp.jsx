@@ -11,6 +11,7 @@ export default class PlayerCreateComp extends Component {
       feedbackMessageType: '',
     };
     this.onSubmit = this.onSubmit.bind(this);
+    this.cancelButtonHandler = this.cancelButtonHandler.bind(this);
   }
 
   onSubmit(data) {
@@ -34,6 +35,10 @@ export default class PlayerCreateComp extends Component {
     });
   }
 
+  cancelButtonHandler() {
+    this.props.history.push('/main/player_select');
+  }
+
   render() {
     const { feedbackMessage, feedbackMessageType } = this.state;
     return (
@@ -48,6 +53,9 @@ export default class PlayerCreateComp extends Component {
                 feedbackMessageType={feedbackMessageType}
                 feedbackMessage={feedbackMessage}
               />
+              <button onClick={() => this.cancelButtonHandler()}>
+                Cancel
+              </button>
               <PlayerCreateForm
                 onSubmit={this.onSubmit}
               />

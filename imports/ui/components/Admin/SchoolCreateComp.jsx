@@ -7,6 +7,7 @@ export default class SchoolCreateComp extends Component {
     super(props);
     this.state = { feedbackMsg: '' };
     this.onSubmit = this.onSubmit.bind(this);
+    this.cancelButtonHandler = this.cancelButtonHandler.bind(this);
   }
 
   onSubmit(data) {
@@ -23,10 +24,17 @@ export default class SchoolCreateComp extends Component {
     });
   }
 
+  cancelButtonHandler() {
+    this.props.history.push('/admin/school_list');
+  }
+
   render() {
     return (
       <div>
         {this.state.feedbackMsg ? <h4>{this.state.feedbackMsg}</h4> : ''}
+        <button onClick={() => this.cancelButtonHandler()}>
+          Cancel
+        </button>
         <SchoolCreateForm
           onSubmit={this.onSubmit}
         />

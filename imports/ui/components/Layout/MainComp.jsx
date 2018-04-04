@@ -12,7 +12,7 @@ import SchoolEditComp from '../Admin/SchoolEditComp';
 import SchoolListContainer from '../../containers/Admin/SchoolListContainer';
 // import TablesMainComp from './components/TablesModule/TablesMainComp';
 // import SumsMainComp from './components/SumsModule/SumsMainComp';
-// components
+// Auth components.
 import HomepageComp from '../Main/HomepageComp';
 import WelcomeComp from '../../containers/Main/WelcomeContainer';
 import SignupContainer from '../../containers/Auth/SignupContainer';
@@ -52,7 +52,7 @@ export default class MainPage extends Component {
               <PublicRouteComp exact path="/auth/signup" component={SignupContainer} {...this.props} />
               <PublicRouteComp exact path="/auth/forgot_password" component={ForgotPasswordContainer} {...this.props} />
               <PublicRouteComp exact path="/auth/reset-password/:token" component={ResetPasswordContainer} {...this.props} />
-              <AuthenticatedRouteComp exact path="/main/welcome" component={WelcomeComp} {...this.props} />
+              <AuthenticatedPlayerRouteComp exact path="/main/welcome" component={WelcomeComp} {...this.props} />
               {/* <Route exact path="/" component={AppContainer} /> */}
             </Switch>
           </div>

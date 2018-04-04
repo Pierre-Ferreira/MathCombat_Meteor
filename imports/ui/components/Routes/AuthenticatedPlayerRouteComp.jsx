@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-const AuthenticatedRouteComp = ({
+const AuthenticatedPlayerRouteComp = ({
   loggingIn,
   authenticated,
   playerID,
@@ -17,16 +17,11 @@ const AuthenticatedRouteComp = ({
         if (playerID) {
           returnJSX = (React.createElement(component, { ...props, loggingIn, authenticated }));
         } else {
-          returnJSX = <Redirect to="/player/select" />;
+          returnJSX = <Redirect to="/main/player_select" />;
         }
       } else {
         returnJSX = <Redirect to="/" />;
       }
-      // return authenticated ?
-      //   playerID ?
-      //     (React.createElement(component, { ...props, loggingIn, authenticated })) :
-      //   (<Redirect to="player/select" />):
-      // (<Redirect to="/" />);
       return returnJSX;
     }}
   />
@@ -38,4 +33,4 @@ const AuthenticatedRouteComp = ({
 //   component: PropTypes.func,
 // };
 
-export default AuthenticatedRouteComp;
+export default AuthenticatedPlayerRouteComp;

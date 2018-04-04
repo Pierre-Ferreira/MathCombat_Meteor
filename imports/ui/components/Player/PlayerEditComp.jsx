@@ -11,6 +11,7 @@ export default class PlayerEditComp extends Component {
       feedbackMessageType: '',
     };
     this.onSubmit = this.onSubmit.bind(this);
+    this.cancelButtonHandler = this.cancelButtonHandler.bind(this);
   }
 
   componentDidMount() {
@@ -48,6 +49,10 @@ export default class PlayerEditComp extends Component {
     });
   }
 
+  cancelButtonHandler() {
+    this.props.history.push('/main/player_select');
+  }
+
   render() {
     const { feedbackMessage, feedbackMessageType } = this.state;
     return (
@@ -55,13 +60,16 @@ export default class PlayerEditComp extends Component {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="text-center">Add kid</h1>
+              <h1 className="text-center">Edit kid</h1>
             </div>
             <div className="modal-body">
               <FormFeedbackMessageComp
                 feedbackMessageType={feedbackMessageType}
                 feedbackMessage={feedbackMessage}
               />
+              <button onClick={() => this.cancelButtonHandler()}>
+                Cancel
+              </button>
               <PlayerEditForm
                 onSubmit={this.onSubmit}
                 model={this.state.model}

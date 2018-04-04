@@ -25,7 +25,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    setPlayerID: playerID => dispatch({ type: 'SET_PLAYER_ID', playerID }),
+    setPlayerInfo: playerInfo => dispatch({ type: 'SET_PLAYER_INFO', playerInfo }),
   };
 }
 

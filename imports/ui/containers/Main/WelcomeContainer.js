@@ -4,16 +4,18 @@ import { push } from 'react-router-redux';
 import WelcomeComp from '../../components/Main/WelcomeComp';
 
 const mapTrackerToProps = (state, props) => {
-  const loggingIn = Meteor.loggingIn();
+  // const loggingIn = Meteor.loggingIn();
   return {
-    loggingIn,
-    authenticated: !loggingIn && !!Meteor.userId(),
+    // loggingIn,
+    // authenticated: !loggingIn && !!Meteor.userId(),
     currentUser: Meteor.user(),
   };
 };
 
 function mapStateToProps(state) {
   return {
+    playerName: state.playerInfo.name,
+    playerSurname: state.playerInfo.surname,
   };
 }
 

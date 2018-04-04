@@ -18,10 +18,16 @@ export default class PlayerListComp extends Component {
     this.props.history.push('/main/player_create');
   }
 
-  selectButtonHandler(_id) {
-    //Fire an action to update selected kid to REDUX.
-    this.props.setPlayerID(_id);
-    this.props.history.push('/main/welcome');
+  selectButtonHandler(_id, playerName) {
+    Meteor.call('player.get', _id, (err, result) => {
+      if (err) {
+        console.log('err:', err);
+        this.setState({ feedbackMsg: `Player '${playerName}' not selected!` });
+      } else {
+        this.props.setPlayerInfo(result);
+        this.props.history.push('/main/welcome');
+      }
+    })
   }
 
   editButtonHandler(_id) {
@@ -30,8 +36,14 @@ export default class PlayerListComp extends Component {
 
   removeButtonHandler(_id, playerName) {
     if (confirm(`Are you sure you want to delete player '${playerName}'?`)) {
-      Meteor.call('player.remove', _id);
-      this.setState({ feedbackMsg: `Player '${playerName}' deleted!` });
+      Meteor.call('player.remove', _id, (err) => {
+        if (err) {
+          console.log('err:', err);
+          this.setState({ feedbackMsg: `Player '${playerName}' not deleted!` });
+        } else {
+          this.setState({ feedbackMsg: `Player '${playerName}' deleted!` });
+        }
+      });
     }
   }
 
@@ -63,7 +75,7 @@ export default class PlayerListComp extends Component {
                       player.userId === Meteor.userId() ?
                         <div>
                           <br/>
-                          <button onClick={() => this.selectButtonHandler(player._id)}>
+                          <button onClick={() => this.selectButtonHandler(player._id, player.name)}>
                             Select
                           </button>
                           <button onClick={() => this.editButtonHandler(player._id)}>

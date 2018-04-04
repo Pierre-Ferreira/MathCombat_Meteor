@@ -1,9 +1,9 @@
 import * as types from '../constants/ActionTypes';
 
 // Player Actiontypes.
-export const setPlayerID = playerID => ({
-  type: types.SET_PLAYER_ID,
-  playerID,
+export const setPlayerInfo = playerInfo => ({
+  type: types.SET_PLAYER_INFO,
+  playerInfo,
 });
 
 // Game actiontypes.
