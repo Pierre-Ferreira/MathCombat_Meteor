@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import AuthenticatedNavigationLinksContainer from '../../containers/Navbar/AuthenticatedNavigationLinksContainer';
 import PublicNavigationLinksContainer from '../../containers/Navbar/PublicNavigationLinksContainer';
-// import './NavbarComp.css';
+import './NavbarComp.css';
 
 export default class NavbarComp extends Component {
   constructor(props) {
@@ -34,8 +34,7 @@ export default class NavbarComp extends Component {
     return (
       <div>
         <Navbar color="faded" className="navbar-dark bg-dark" light expand="md">
-          <NavbarBrand>
-            {/* <NavLink to="/">MATHCOMBAT</NavLink> */}
+          <NavbarBrand href="/main/welcome">
             MATHCOMBAT
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
