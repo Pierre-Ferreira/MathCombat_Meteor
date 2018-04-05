@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
 import AuthFeedbackMessageComp from './AuthFeedbackMessageComp';
 
 
@@ -11,8 +12,13 @@ export default class LoginComp extends Component {
       feedbackMessage: '',
       resendVerificationMessages: '',
     };
+    this.close = this.close.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.resendVerificationEmail = this.resendVerificationEmail.bind(this);
+  }
+
+  close() {
+    this.props.history.push('/');
   }
 
   resendVerificationEmail() {
@@ -72,6 +78,7 @@ export default class LoginComp extends Component {
       <div className="modal show">
         <div className="modal-dialog">
           <div className="modal-content">
+            <Button color="danger" className="pull-right" size="lg" onClick={this.close}>X</Button>
             <div className="modal-header">
               <h1 className="text-center">Login</h1>
             </div>

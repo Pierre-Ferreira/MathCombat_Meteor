@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Link } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
+import { Button } from 'reactstrap';
 import AuthFeedbackMessageComp from './AuthFeedbackMessageComp';
+import './SignupComp.css';
 
 export default class SignupComp extends Component {
   constructor(props) {
@@ -10,7 +12,12 @@ export default class SignupComp extends Component {
     this.state = {
       feedbackMessage: '',
     };
+    this.close = this.close.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  close() {
+    this.props.history.push('/');
   }
 
   handleSubmit(e) {
@@ -27,9 +34,6 @@ export default class SignupComp extends Component {
       firstName,
       lastName,
     };
-    // const FEEDBACK = Meteor.users.simpleSchema().namedContext().validate({ emails: email, password, profile});
-    // //.validate({ emails: email, password, profile}, {modifier: false});
-    // console.log('FEEDBACK:',FEEDBACK)
     Accounts.createUser({ email, password, profile }, (err) => {
       if (err) {
         this.setState({
@@ -60,9 +64,14 @@ export default class SignupComp extends Component {
       <div className="modal show">
         <div className="modal-dialog">
           <div className="modal-content">
+            <Button color="danger" className="pull-right" size="lg" onClick={this.close}>X</Button>
             <div className="modal-header">
-              <h1 className="text-center">Sign up</h1>
-              <h4 className="text-center">Kids can be added in backoffice.</h4>
+              <div>
+                <h1 className="text-center">Sign up</h1>
+              </div>
+              <div>
+                <h4 className="text-center">Kids can be added in backoffice.</h4>
+              </div>
             </div>
             <div className="modal-body">
               <AuthFeedbackMessageComp

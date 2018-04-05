@@ -9,6 +9,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
+import './AuthenticatedNavigationLinksComp.less';
 
 export default class AuthenticatedNavigationLinksComp extends Component {
   constructor(props) {
@@ -28,22 +29,19 @@ export default class AuthenticatedNavigationLinksComp extends Component {
 
   render() {
     return (
-      <Nav className="ml-auto" navbar>
-        <NavItem>
-          <NavLink to="/admin/school_list">Schools</NavLink>
-        </NavItem>
+      <Nav className="ml-auto auth-nav-links-comp" navbar>
         <UncontrolledDropdown nav inNavbar>
-          <DropdownToggle nav caret>
+          <DropdownToggle color="success" nav caret>
             Modules
           </DropdownToggle>
           <DropdownMenu >
             <DropdownItem>
-              <NavLink to="/tables" style={{ textDecoration: 'none', color: 'black' }}>
+              <NavLink to="/practice/modules/tables" style={{ textDecoration: 'none', color: 'black' }}>
                 x en ÷
               </NavLink>
             </DropdownItem>
             <DropdownItem >
-              <NavLink to="/sums" style={{ textDecoration: 'none', color: 'black' }}>
+              <NavLink to="/practice/modules/sums" style={{ textDecoration: 'none', color: 'black' }}>
               + en -
               </NavLink>
             </DropdownItem>
@@ -57,7 +55,10 @@ export default class AuthenticatedNavigationLinksComp extends Component {
           </DropdownMenu>
         </UncontrolledDropdown>
         <NavItem>
-          <a onClick={this.logoutFN}>Logout</a>
+          <NavLink to="/admin/school_list">Schools</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink to="" onClick={this.logoutFN}>Logout</NavLink>
         </NavItem>
       </Nav>
     );

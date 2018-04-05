@@ -10,8 +10,6 @@ import PlayerCreateComp from '../Player/PlayerCreateComp';
 import SchoolCreateComp from '../Admin/SchoolCreateComp';
 import SchoolEditComp from '../Admin/SchoolEditComp';
 import SchoolListContainer from '../../containers/Admin/SchoolListContainer';
-// import TablesMainComp from './components/TablesModule/TablesMainComp';
-// import SumsMainComp from './components/SumsModule/SumsMainComp';
 // Auth components.
 import HomepageComp from '../Main/HomepageComp';
 import WelcomeComp from '../../containers/Main/WelcomeContainer';
@@ -23,6 +21,8 @@ import ForgotPasswordContainer from '../../containers/Auth/ForgotPasswordContain
 import AuthenticatedRouteComp from '../Routes/AuthenticatedRouteComp';
 import AuthenticatedPlayerRouteComp from '../Routes/AuthenticatedPlayerRouteComp';
 import PublicRouteComp from '../Routes/PublicRouteComp';
+// Module components.
+import TablesMainComp from '../TablesModule/TablesMainComp';
 // import { withHistory, Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
@@ -36,6 +36,16 @@ export default class MainPage extends Component {
   }
 
   render() {
+    const style = {
+      backgroundImage: 'url("/images/games_background2.png")',
+      backgroundColor: 'darkgray',
+      height: '-webkit-fill-available',
+      backgroundRepeat: 'no-repeat',
+      backgroundAttachment: 'fixed',
+      backgroundBlendMode: 'hard-light',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center center',
+    };
     return (
       <div>
         <Container>
@@ -53,7 +63,7 @@ export default class MainPage extends Component {
               <PublicRouteComp exact path="/auth/forgot_password" component={ForgotPasswordContainer} {...this.props} />
               <PublicRouteComp exact path="/auth/reset-password/:token" component={ResetPasswordContainer} {...this.props} />
               <AuthenticatedPlayerRouteComp exact path="/main/welcome" component={WelcomeComp} {...this.props} />
-              {/* <Route exact path="/" component={AppContainer} /> */}
+              <AuthenticatedPlayerRouteComp exact path="/practice/modules/tables" component={TablesMainComp} {...this.props} />
             </Switch>
           </div>
         </Container>

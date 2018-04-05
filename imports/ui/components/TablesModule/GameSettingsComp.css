@@ -1,0 +1,17 @@
+#table-main-container-area #game-settings-area {
+  margin-top: 20px;
+}
+#table-main-container-area #game-settings-area .btn-custom {
+  margin: 15px;
+  width: -webkit-fill-available;
+}
+#table-main-container-area #game-settings-area .selectpicker {
+  width: -webkit-fill-available;
+  height: 60%;
+  margin-top: 10px;
+  font-size: larger;
+}
+
+#table-main-container-area #game-settings-area label {
+    height: 100%;
+}

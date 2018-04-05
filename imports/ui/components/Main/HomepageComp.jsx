@@ -1,10 +1,13 @@
 import React from 'react';
+import './HomepageComp.less';
 
 const HomepageComp = (props) => {
   return (
-    <h1 className="text-center">
-      Please login to enjoy our app!!
-    </h1>
+    <div className="HomepageComp-layout">
+      <h1 className="text-center">
+        Please login to enjoy our app!!
+      </h1>
+    </div>
   );
 };
 
