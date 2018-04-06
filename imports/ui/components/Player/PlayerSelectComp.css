@@ -1,0 +1,11 @@
+.kids-select-btn {
+  background: #0867ca;
+  font-size: xx-large;
+  border-radius: 20px;
+  margin: 6px auto;
+  padding: 20px 0px;
+  width: 90%;
+}
+.kids-select-btn:hover {
+  background: #007bff;
+}

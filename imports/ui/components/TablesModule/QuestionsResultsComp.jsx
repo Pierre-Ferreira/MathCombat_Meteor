@@ -20,10 +20,9 @@ const QuestionsResultsComp = (props) => {
             borderStyle: 'solid',
             paddingLeft: '5px',
           };
-          const answerGiven = (value.answerGiven || value.answerGiven === 0) ? value.answerGiven : '_';
           const questionString = `${value.questionId}) ${value.questionOperand1}
                         ${value.questionOperator}
-                        ${value.questionOperand2} = ${answerGiven} (${value.correctAnswer})`;
+                        ${value.questionOperand2} = ${value.answerGiven} (${value.correctAnswer})`;
           return (
             <li key={value.questionId} style={liStyle}>
               {questionString}

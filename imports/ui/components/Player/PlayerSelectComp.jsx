@@ -1,23 +1,19 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 // import route from '/imports/routing/router.js';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import moment from "moment/moment";
+import './PlayerSelectComp.css';
 
-export default class PlayerListComp extends Component {
+export default class PlayerSelectComp extends Component {
   constructor(props) {
     super(props);
     this.state = { feedbackMsg: '' };
-    this.addButtonHandler = this.addButtonHandler.bind(this);
+    this.selectButtonHandler = this.selectButtonHandler.bind(this);
     this.editButtonHandler = this.editButtonHandler.bind(this);
-    this.removeButtonHandler = this.removeButtonHandler.bind(this);
   }
-
-  addButtonHandler() {
-    this.props.history.push('/main/player_create');
-  }
-
   selectButtonHandler(_id, playerName) {
     Meteor.call('player.get', _id, (err, result) => {
       if (err) {
@@ -30,21 +26,8 @@ export default class PlayerListComp extends Component {
     })
   }
 
-  editButtonHandler(_id) {
-    this.props.history.push(`/main/player_edit/${_id}`);
-  }
-
-  removeButtonHandler(_id, playerName) {
-    if (confirm(`Are you sure you want to delete player '${playerName}'?`)) {
-      Meteor.call('player.remove', _id, (err) => {
-        if (err) {
-          console.log('err:', err);
-          this.setState({ feedbackMsg: `Player '${playerName}' not deleted!` });
-        } else {
-          this.setState({ feedbackMsg: `Player '${playerName}' deleted!` });
-        }
-      });
-    }
+  editButtonHandler() {
+    this.props.history.push('/main/player_list');
   }
 
   render() {
@@ -57,41 +40,24 @@ export default class PlayerListComp extends Component {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="text-center">Kids</h1>
+              <h1 className="text-center">Select Kid</h1>
             </div>
             {/* <div className="flex-container"> */}
             {this.state.feedbackMsg ? <h2>{this.state.feedbackMsg}</h2> : ''}
-            <button onClick={() => this.addButtonHandler()}>
-              Add New
-            </button>
             {
               players.map(player => {
                 return (
                   <div key={player._id} className="userPost">
-                    <div>{player.name}</div>
-                    <div>{player.address}</div>
-                    <div>{moment(player.createdAt).format('H:m:s MM.DD')}</div>
-                    {
-                      player.userId === Meteor.userId() ?
-                        <div>
-                          <br/>
-                          <button onClick={() => this.selectButtonHandler(player._id, player.name)}>
-                            Select
-                          </button>
-                          <button onClick={() => this.editButtonHandler(player._id)}>
-                            Edit
-                          </button>
-                          <br/>
-                          <button onClick={() => this.removeButtonHandler(player._id, player.name)}>
-                            Remove
-                          </button>
-                          <br/>
-                        </div> : null
-                    }
+                    <Button className="kids-select-btn" size="lg" block onClick={() => this.selectButtonHandler(player._id, player.name)}>
+                      <div>{player.name} Gr{player.grade}</div>
+                    </Button>
                   </div>
                 );
               }).sort((a, b) => a.createdAt > b.createdAt)
             }
+            <Button color="success" size="lg" block onClick={() => this.editButtonHandler()}>
+              Edit Kids
+            </Button>
           </div>
         </div>
       </div>

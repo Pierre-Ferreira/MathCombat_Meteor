@@ -4,6 +4,7 @@ import { Container } from 'reactstrap';
 import 'react-router-modal/css/react-router-modal.css';
 // Player components.
 import PlayerSelectContainer from '../../containers/Player/PlayerSelectContainer';
+import PlayerListContainer from '../../containers/Player/PlayerListContainer';
 import PlayerEditComp from '../Player/PlayerEditComp';
 import PlayerCreateComp from '../Player/PlayerCreateComp';
 // School components.
@@ -47,23 +48,26 @@ export default class MainPage extends Component {
       backgroundPosition: 'center center',
     };
     return (
-      <div>
+      <div style={style}>
         <Container>
           <div>
             <Switch>
               <Route exact path="/" component={HomepageComp} />
               <AuthenticatedRouteComp exact path="/main/player_select" component={PlayerSelectContainer} {...this.props} />
+              <AuthenticatedRouteComp exact path="/main/player_list" component={PlayerListContainer} {...this.props} />
               <AuthenticatedRouteComp exact path="/main/player_create" component={PlayerCreateComp} {...this.props} />
               <AuthenticatedRouteComp exact path="/main/player_edit/:_id" component={PlayerEditComp} {...this.props} />
               <AuthenticatedRouteComp exact path="/admin/school_create" component={SchoolCreateComp} {...this.props} />
               <AuthenticatedRouteComp exact path="/admin/school_edit/:_id" component={SchoolEditComp} {...this.props} />
               <AuthenticatedRouteComp exact path="/admin/school_list" component={SchoolListContainer} {...this.props} />
+              {/* <AuthenticatedRouteComp component={WelcomeComp} /> */}
               <PublicRouteComp exact path="/auth/login" component={LoginContainer} {...this.props} />
               <PublicRouteComp exact path="/auth/signup" component={SignupContainer} {...this.props} />
               <PublicRouteComp exact path="/auth/forgot_password" component={ForgotPasswordContainer} {...this.props} />
               <PublicRouteComp exact path="/auth/reset-password/:token" component={ResetPasswordContainer} {...this.props} />
               <AuthenticatedPlayerRouteComp exact path="/main/welcome" component={WelcomeComp} {...this.props} />
               <AuthenticatedPlayerRouteComp exact path="/practice/modules/tables" component={TablesMainComp} {...this.props} />
+              {/* <AuthenticatedPlayerRouteComp component={WelcomeComp} /> */}
             </Switch>
           </div>
         </Container>

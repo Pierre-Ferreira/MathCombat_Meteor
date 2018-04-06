@@ -9,7 +9,7 @@ Meteor.methods({
         why: 'User not logged in',
       });
     } else {
-      Players.insert(data, { validate: false });
+      Players.insert(data, { validate: true });
       console.log('inserted: ', Players.find(data).fetch()[0]);
     }
   },

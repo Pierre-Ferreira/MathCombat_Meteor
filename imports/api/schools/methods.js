@@ -9,7 +9,7 @@ Meteor.methods({
         why: 'User not logged in',
       });
     } else {
-      Schools.insert(data, { validate: false });
+      Schools.insert(data, { validate: true });
       console.log('inserted: ', Schools.find(data).fetch()[0]);
     }
   },

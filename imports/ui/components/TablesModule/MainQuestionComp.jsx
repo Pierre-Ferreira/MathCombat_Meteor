@@ -46,10 +46,6 @@ const generatedDivisionQuestion = ({ lowerLimit, upperLimit, gameTable }) => {
   const questionOperator = '÷';
   let correctAnswer = '';
   let questionTable = '';
-  // // Generate a random number within the given limits.
-  // correctAnswer = Math.floor(Math.random() * ((upperLimit - lowerLimit) + 1)) + lowerLimit;
-  // // Calculate the correct answer.
-  // questionOperand1 = correctAnswer * gameTable;
   // Generate a random number within the given limits.
   correctAnswer = Math.floor(Math.random() * ((upperLimit - lowerLimit) + 1)) + lowerLimit;
   if (gameTable === 'all') {
@@ -80,10 +76,10 @@ const generateNewQuestion = ({
   if (gameType === 'pratice_plain_multiplication') {
     // Create a multiplication question.
     questionGeneratedObj = generateMultiplicationQuestion(questionGeneratorArguments);
-  } else if (gameType === 'plain_division') {
+  } else if (gameType === 'pratice_plain_division') {
     // Create a division question.
     questionGeneratedObj = generatedDivisionQuestion(questionGeneratorArguments);
-  } else if (gameType === 'mixed_multiplication_division') {
+  } else if (gameType === 'practice_mixed_multiplication_division') {
     // Generate a random boolean to determine multiplication of division.
     const randomBoolean = Math.floor(Math.random() * 2);
     if (randomBoolean) {
@@ -106,6 +102,7 @@ class MainQuestionComp extends React.Component {
     this.evaluateAnswer = this.evaluateAnswer.bind(this);
     this.generateQuestionCheck = this.generateQuestionCheck.bind(this);
     this.restartTimer = this.restartTimer.bind(this);
+    this.endGame = this.endGame.bind(this);
     this.tick = this.tick.bind(this);
     const { gameQuestionTime } = this.props;
     this.state = {
@@ -165,7 +162,8 @@ class MainQuestionComp extends React.Component {
     const { questionOperand2 } = this.state;
     const { questionOperator } = this.state;
     const { correctAnswer } = this.state;
-    const answerGiven = this.props.currentAnswer;
+    // If no answer was given then make it an underscore.
+    const answerGiven = (this.props.currentAnswer === '') ? '_' : this.props.currentAnswer;
     // Save the answer info.
     const answerObject = {
       questionId,
@@ -219,11 +217,16 @@ class MainQuestionComp extends React.Component {
       // Restart the timer.
       this.restartTimer();
     } else {
-      // Clear the timer.
-      clearInterval(this.timer);
       // End the game.
-      this.props.endGame();
+      this.endGame();
     }
+  }
+
+  endGame() {
+    // Clear the timer.
+    clearInterval(this.timer);
+    // Call the action to update game's end in REDUX.
+    this.props.endGame();
   }
 
   restartTimer() {

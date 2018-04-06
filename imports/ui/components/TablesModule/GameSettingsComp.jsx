@@ -80,10 +80,10 @@ class GameSettingsComp extends React.Component {
                       <option value="pratice_plain_multiplication">x</option>
                     </optgroup>
                     <optgroup label="Deel">
-                      <option value="plain_division">÷</option>
+                      <option value="pratice_plain_division">÷</option>
                     </optgroup>
                     <optgroup label="Gemeng">
-                      <option value="mixed_multiplication_division">x && ÷</option>
+                      <option value="practice_mixed_multiplication_division">x && ÷</option>
                     </optgroup>
                   </select>
                 </label>

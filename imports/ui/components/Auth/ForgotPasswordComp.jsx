@@ -61,10 +61,6 @@ export default class ForgotPasswordComp extends Component {
                 className="form col-md-12 center-block"
                 onSubmit={this.handleSubmit}
               >
-                {/* <div className="form-group">
-                  <input type="text" id="signup-name"
-                        className="form-control input-lg" placeholder="name"/>
-                </div> */}
                 <div className="form-group">
                   <input
                     type="email"
@@ -73,11 +69,6 @@ export default class ForgotPasswordComp extends Component {
                     placeholder="email"
                   />
                 </div>
-                {/* <div className="form-group">
-                  <input type="password" id="signup-password"
-                        className="form-control input-lg"
-                        placeholder="password"/>
-                </div> */}
                 <div className="form-group">
                   <input
                     type="submit"

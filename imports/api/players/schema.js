@@ -28,9 +28,11 @@ const PlayersSchema = new SimpleSchema({
   },
   createdAt: {
     type: Date,
+    optional: true,
   },
   updatedAt: {
     type: Date,
+    optional: true,
   },
 });
 

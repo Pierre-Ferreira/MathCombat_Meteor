@@ -5,6 +5,12 @@ function mapStateToProps(state) {
   return {
     numberOfCorrect: state.gameScore.numberOfCorrect,
     percentageCorrect: state.gameScore.percentageCorrect,
+    gameNoOfQuestions: state.gameSettings.gameNoOfQuestions,
+    gameTable: state.gameSettings.gameTable,
+    gameType: state.gameSettings.gameType,
+    gameQuestionTime: state.gameSettings.gameQuestionTime,
+    gameAnswers: state.gameAnswers,
+    playerID: state.playerInfo._id,
   };
 }
 
