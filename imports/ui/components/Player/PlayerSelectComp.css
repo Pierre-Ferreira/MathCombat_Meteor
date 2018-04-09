@@ -1,11 +1,13 @@
-.kids-select-btn {
-  background: #0867ca;
+.player-select-btn {
+  /* background: #0867ca; */
   font-size: xx-large;
-  border-radius: 20px;
+  border-radius: 4px;
   margin: 6px auto;
-  padding: 20px 0px;
-  width: 90%;
+  padding: 20px 10px;
+  /* width: 90%; */
+  overflow: auto;
+  /* padding: 0px 10px; */
 }
-.kids-select-btn:hover {
-  background: #007bff;
+.player-select-btn:hover {
+  /* background: #007bff; */
 }

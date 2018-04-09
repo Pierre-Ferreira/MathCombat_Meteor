@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
 import { Button } from 'reactstrap';
 import AuthFeedbackMessageComp from './AuthFeedbackMessageComp';
-import './SignupComp.css';
+// import './SignupComp.css';
+import './auth.less';
 
 export default class SignupComp extends Component {
   constructor(props) {
@@ -119,7 +120,7 @@ export default class SignupComp extends Component {
                   <input
                     type="submit"
                     id="login-button"
-                    className="btn btn-lg btn-primary btn-block"
+                    className="btn btn-lg btn-blue btn-block"
                     value="Sign Up"
                   />
                 </div>

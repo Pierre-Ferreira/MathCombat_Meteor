@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import AuthFeedbackMessageComp from './AuthFeedbackMessageComp';
-
+import './auth.less';
 
 export default class LoginComp extends Component {
   constructor(props) {
@@ -119,7 +119,7 @@ export default class LoginComp extends Component {
                   <input
                     type="submit"
                     id="login-button"
-                    className="btn btn-primary btn-lg btn-block"
+                    className="btn btn-blue btn-lg btn-block"
                     value="Login"
                   />
                 </div>

@@ -1,19 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {  Alert  } from 'reactstrap';
 
 const FormFeedbackMessageComp = (props) => {
-  const feedbackMessageType = (props.feedbackMessageType) ? `alert-${props.feedbackMessageType}` : 'alert-danger';
+  const feedbackMessageType = (props.feedbackMessageType) ? props.feedbackMessageType : 'danger';
   const feedbackMessage = props.feedbackMessage || '';
-  const tokenExpiredFlag = props.tokenExpiredFlag || false;
-  const resendVerificationEmailFN = props.resendVerificationEmailFN || '';
-  const resendVerificationMessages = props.resendVerificationMessages || '';
 
   // Check if a feedback message was set.
   if (feedbackMessage.trim().length !== 0) {
     return (
-      <div className={`alert ${feedbackMessageType} fade in`}>
-        {feedbackMessage}
-      </div>
+      <Alert color={feedbackMessageType}>
+        <h4>{feedbackMessage}</h4>
+      </Alert>
     );
   } else {
     return null;

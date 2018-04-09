@@ -1,19 +1,61 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
+import { Button, ButtonGroup, Alert  } from 'reactstrap';
 // import route from '/imports/routing/router.js';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import moment from "moment/moment";
+import FormFeedbackMessageComp from '../Misc/FormFeedbackMessageComp';
+import './PlayerListComp.less';
 
 export default class PlayerListComp extends Component {
   constructor(props) {
     super(props);
-    this.state = { feedbackMsg: '' };
+    this.state = {
+      feedbackMessage: '',
+      feedbackMessageType: '',
+    };
+    this.backButtonHandler = this.backButtonHandler.bind(this);
     this.addButtonHandler = this.addButtonHandler.bind(this);
     this.editButtonHandler = this.editButtonHandler.bind(this);
     this.removeButtonHandler = this.removeButtonHandler.bind(this);
   }
 
+  componentDidMount() {
+    const { loading } = this.props;
+    if (loading) {
+      this.setState({
+        feedbackMessage: 'Loading...',
+        feedbackMessageType: 'warning',
+      });
+    } else {
+      this.setState({
+        feedbackMessage: '',
+        feedbackMessageType: '',
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.loading !== this.props.loading) {
+      const { loading } = this.props;
+      if (loading) {
+        this.setState({
+          feedbackMessage: 'Loading...',
+          feedbackMessageType: 'warning',
+        });
+      } else {
+        this.setState({
+          feedbackMessage: '',
+          feedbackMessageType: '',
+        });
+      }
+    }
+  }
+
+  backButtonHandler() {
+    this.props.history.push('/main/player_select');
+  }
   addButtonHandler() {
     this.props.history.push('/main/player_create');
   }
@@ -27,59 +69,73 @@ export default class PlayerListComp extends Component {
       Meteor.call('player.remove', _id, (err) => {
         if (err) {
           console.log('err:', err);
-          this.setState({ feedbackMsg: `Player '${playerName}' not deleted!` });
+          this.setState({
+            feedbackMessage: `Player '${playerName}' not deleted! ${err}`,
+            feedbackMessageType: 'danger',
+          });
         } else {
-          this.setState({ feedbackMsg: `Player '${playerName}' deleted!` });
+          this.setState({
+            feedbackMessage: `Player '${playerName}' deleted!`,
+            feedbackMessageType: 'success',
+          });
         }
       });
     }
   }
 
   render() {
-    const { loading, players } = this.props;
-    if (loading) {
-      return <div>Waiting for the method</div>;
-    }
+    const { players } = this.props;
+    const { feedbackMessageType, feedbackMessage } = this.state;
     return (
-      <div className="modal show">
+      <div className="player-list-modal modal show">
         <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
+          <div className="modal-content container-fluid">
+            <div className="row">
+              <Button color="danger col-sm-12" size="lg" block onClick={() => this.backButtonHandler()}>
+                Back
+              </Button>
+            </div>
+            <div className="modal-header row">
               <h1 className="text-center">Kids</h1>
             </div>
-            {/* <div className="flex-container"> */}
-            {this.state.feedbackMsg ? <h2>{this.state.feedbackMsg}</h2> : ''}
-            <button onClick={() => this.addButtonHandler()}>
-              Add New
-            </button>
-            {
-              players.map(player => {
-                return (
-                  <div key={player._id} className="userPost">
-                    <div>{player.name}</div>
-                    <div>{player.address}</div>
-                    <div>{moment(player.createdAt).format('H:m:s MM.DD')}</div>
-                    {
-                      player.userId === Meteor.userId() ?
-                        <div>
-                          <br />
-                          <button onClick={() => this.editButtonHandler(player._id)}>
-                            Edit
-                          </button>
-                          <br />
-                          <button onClick={() => this.removeButtonHandler(player._id, player.name)}>
-                            Remove
-                          </button>
-                          <br />
-                        </div> : null
-                    }
-                  </div>
-                );
-              }).sort((a, b) => a.createdAt > b.createdAt)
-            }
+            <div className="modal-body">
+              <FormFeedbackMessageComp
+                feedbackMessageType={feedbackMessageType}
+                feedbackMessage={feedbackMessage}
+              />
+              {
+                players.map(player => {
+                  return (
+                    <div key={player._id} className="row player-list-entry">
+                      <div className="col-sm-12">
+                        {
+                          player.userId === Meteor.userId() ?
+                            <ButtonGroup>
+                            <Button className="btn-blue player-edit-btn col-sm-10" onClick={() => this.editButtonHandler(player._id)}>
+                              <div>{player.name}</div>
+                              <div>{player.surname}</div>
+                              <div>Gr{player.grade}</div>
+                              <div>{player.school}</div>
+                            </Button>
+                            <Button color="info" className="player-remove-btn col-sm-2" onClick={() => this.removeButtonHandler(player._id, player.name)}>
+                              x
+                            </Button>
+                            </ButtonGroup> : null
+                        }
+                      </div>
+                    </div>
+                  );
+                }).sort((a, b) => a.createdAt > b.createdAt)
+              }
+              <div className="row">
+                <Button className="btn-green" size="lg" block onClick={() => this.addButtonHandler()}>
+                  Add New
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 import PlayerCreateForm from '../../forms/players/PlayerCreateForm';
 import FormFeedbackMessageComp from '../Misc/FormFeedbackMessageComp';
 
@@ -30,13 +31,13 @@ export default class PlayerCreateComp extends Component {
           feedbackMessage: 'Player Created',
           feedbackMessageType: 'success',
         });
-        this.props.history.push('/main/player_select');
+        this.props.history.push('/main/player_list');
       }
     });
   }
 
   cancelButtonHandler() {
-    this.props.history.push('/main/player_select');
+    this.props.history.push('/main/player_list');
   }
 
   render() {
@@ -44,7 +45,12 @@ export default class PlayerCreateComp extends Component {
     return (
       <div className="modal show">
         <div className="modal-dialog">
-          <div className="modal-content">
+          <div className="modal-content container-fluid">
+            <div className="row">
+              <Button color="danger col-sm-12" size="lg" block onClick={() => this.cancelButtonHandler()}>
+                Cancel
+              </Button>
+            </div>
             <div className="modal-header">
               <h1 className="text-center">Add kid</h1>
             </div>
@@ -53,9 +59,6 @@ export default class PlayerCreateComp extends Component {
                 feedbackMessageType={feedbackMessageType}
                 feedbackMessage={feedbackMessage}
               />
-              <button onClick={() => this.cancelButtonHandler()}>
-                Cancel
-              </button>
               <PlayerCreateForm
                 onSubmit={this.onSubmit}
               />

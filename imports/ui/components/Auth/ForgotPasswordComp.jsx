@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
 import { Button } from 'reactstrap';
 import AuthFeedbackMessageComp from './AuthFeedbackMessageComp';
+import './auth.less';
 
 export default class ForgotPasswordComp extends Component {
   constructor(props) {
@@ -73,8 +74,8 @@ export default class ForgotPasswordComp extends Component {
                   <input
                     type="submit"
                     id="login-button"
-                    className="btn btn-lg btn-primary btn-block"
-                    value="Reset password"
+                    className="btn btn-lg btn-blue btn-block"
+                    value="Reset"
                   />
                 </div>
                 <div className="form-group">

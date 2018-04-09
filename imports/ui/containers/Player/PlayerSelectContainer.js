@@ -6,6 +6,7 @@ import Players from '../../../api/players/collection';
 
 const mapTrackerToProps = (state, props) => {
   const handle = Meteor.subscribe('players');
+console.log('!handle.ready():',!handle.ready())
   const loggingIn = Meteor.loggingIn();
   return {
     loggingIn,
