@@ -1,10 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
-// import route from '/imports/routing/router.js';
-import { withTracker } from 'meteor/react-meteor-data';
-import { Link } from 'react-router-dom';
-import moment from "moment/moment";
+import PropTypes from 'prop-types';
 import FormFeedbackMessageComp from '../Misc/FormFeedbackMessageComp';
 import './PlayerSelectComp.css';
 
@@ -67,7 +64,7 @@ export default class PlayerSelectComp extends Component {
         this.props.setPlayerInfo(result);
         this.props.history.push('/main/welcome');
       }
-    })
+    });
   }
 
   editButtonHandler() {
@@ -107,6 +104,14 @@ export default class PlayerSelectComp extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
+
+PlayerSelectComp.propTypes = {
+  players: PropTypes.arrayOf.isRequired,
+  loading: PropTypes.bool.isRequired,
+  setPlayerInfo: PropTypes.func.isRequired,
+  history: PropTypes.shape.isRequired,
+  push: PropTypes.func,
+};

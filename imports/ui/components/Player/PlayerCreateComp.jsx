@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
 import PlayerCreateForm from '../../forms/players/PlayerCreateForm';
 import FormFeedbackMessageComp from '../Misc/FormFeedbackMessageComp';
@@ -70,3 +71,8 @@ export default class PlayerCreateComp extends Component {
     );
   }
 }
+
+PlayerCreateComp.propTypes = {
+  history: PropTypes.shape.isRequired,
+  push: PropTypes.func.isRequired,
+};

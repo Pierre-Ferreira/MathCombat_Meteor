@@ -1,6 +1,6 @@
 import React from 'react';
 import { AutoForm } from 'uniforms-bootstrap4';
-// import SubmitField from 'uniforms-bootstrap4/SubmitField';
+import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
 import PlayersSchema from '../../../api/players/schema';
 import '../CustomUniForm.less';
@@ -18,5 +18,10 @@ const PlayerCreateForm = ({ onSubmit, model = {} }) => (
     showInlineError
   />
 );
+
+PlayerCreateForm.propTypes = {
+  model: PropTypes.shape.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default PlayerCreateForm;

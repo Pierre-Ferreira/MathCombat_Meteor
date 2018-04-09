@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button, ButtonGroup, Alert  } from 'reactstrap';
-// import route from '/imports/routing/router.js';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import moment from "moment/moment";
@@ -139,3 +139,8 @@ export default class PlayerListComp extends Component {
     );
   }
 }
+
+PlayerListComp.propTypes = {
+  players: PropTypes.arrayOf.isRequired,
+  loading: PropTypes.bool.isRequired,
+};
