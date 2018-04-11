@@ -1,25 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import './WelcomeComp.less';
 
 const WelcomeComp = (props) => {
-  // const { currentUser } = props;
-  // let userFirstName = '';
-  // let userLastName = '';
-  // if (currentUser && currentUser.profile && currentUser.profile.firstName) {
-  //   userFirstName = currentUser.profile.firstName;
-  // }
-  // if (currentUser && currentUser.profile && currentUser.profile.lastName) {
-  //   userLastName = currentUser.profile.lastName;
-  // }
-  // console.log('currentUser:',currentUser);
   return (
-    <h1 className="text-center">
-      Welcome {props.playerName} {props.playerSurname}
-    </h1>
+    <div className="WelcomeComp-layout">
+      <h1 className="text-center">
+        Welcome {props.playerName} {props.playerSurname}
+      </h1>
+    </div>
   );
 };
 
-// WelcomeComp.propTypes = {
-//
-// };
+WelcomeComp.propTypes = {
+  playerName: PropTypes.string.isRequired,
+  playerSurname: PropTypes.string.isRequired,
+};
 
 export default WelcomeComp;

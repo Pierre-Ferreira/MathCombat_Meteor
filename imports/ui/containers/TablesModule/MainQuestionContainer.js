@@ -23,6 +23,7 @@ function mapDispatchToProps(dispatch) {
     saveGameScore: (numberOfCorrect, percentageCorrect) => dispatch({ type: 'SAVE_GAME_SCORE', numberOfCorrect, percentageCorrect }),
     startGame: () => dispatch({ type: 'START_GAME' }),
     endGame: () => dispatch({ type: 'END_GAME' }),
+    clearGame: () => dispatch({ type: 'CLEAR_GAME' }),
   };
 }
 

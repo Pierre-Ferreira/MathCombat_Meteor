@@ -47,19 +47,19 @@ class IntegerInputComp extends React.Component {
       // Check if value is bigger than min value.
       const minValue = (this.props.minValue) ? this.props.minValue : Number.NEGATIVE_INFINITY;
       if (newText < minValue && newText.length !== 0) {
-        this.setState({ feedBackMsg: `Getal moet '${minValue}' of groter wees!` });
+        this.setState({ feedBackMsg: `Number must be '${minValue}' or bigger!` });
       }
       // Check if value is smaller than max value.
       const maxValue = (this.props.maxValue) ? this.props.maxValue : Number.POSITIVE_INFINITY;
       if (newText > maxValue && newText.length !== 0) {
-        this.setState({ feedBackMsg: `Getal moet '${maxValue}' of kleiner wees!` });
+        this.setState({ feedBackMsg: `Number must be '${maxValue}' or smaller!` });
       }
       // Set the state with the new value.
       this.setState({ inputValue: newText });
       // Update the REDUX store with the current value (answer).
       this.props.parentOnChangeFunc(newText);
     } else {
-      this.setState({ feedBackMsg: 'Net getalle, Doofus!' });
+      this.setState({ feedBackMsg: 'Numbers only, Doofus!' });
     }
   }
 

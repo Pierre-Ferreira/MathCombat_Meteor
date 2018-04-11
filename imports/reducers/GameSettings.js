@@ -9,7 +9,7 @@ const initialState = {
   gameType: '',
   gameQuestionTime: '',
   gameInProgress: false,
-  gameStartButtonText: 'BEGIN',
+  gameStartButtonText: 'PLAY',
   gameStartButtonDisabled: false,
   displayWelcomeScreen: true,
 };
@@ -31,7 +31,7 @@ const gameSettings = (state = initialState, action) => {
       return {
         ...state,
         gameInProgress: true,
-        gameStartButtonText: 'WAT KYK JY? FOKUS OP DIE VRAE..',
+        gameStartButtonText: 'WHAT YOU LOOKING AT?',
         gameStartButtonDisabled: true,
         displayWelcomeScreen: false,
       };
@@ -39,7 +39,7 @@ const gameSettings = (state = initialState, action) => {
       return {
         ...state,
         gameInProgress: false,
-        gameStartButtonText: 'SPEEL WEER!!',
+        gameStartButtonText: 'PLAY AGAIN!',
         gameStartButtonDisabled: false,
       };
     default:

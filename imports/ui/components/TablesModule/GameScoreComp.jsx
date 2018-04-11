@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './GameScoreComp.css';
+import './GameScoreComp.less';
 
 
 const GameScoreComp = (props) => {

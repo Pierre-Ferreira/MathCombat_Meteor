@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Container } from 'reactstrap';
+import PropTypes from 'prop-types';
 import 'react-router-modal/css/react-router-modal.css';
 // Player components.
 import PlayerSelectContainer from '../../containers/Player/PlayerSelectContainer';
@@ -23,9 +24,9 @@ import AuthenticatedRouteComp from '../Routes/AuthenticatedRouteComp';
 import AuthenticatedPlayerRouteComp from '../Routes/AuthenticatedPlayerRouteComp';
 import PublicRouteComp from '../Routes/PublicRouteComp';
 // Module components.
-import TablesMainComp from '../TablesModule/TablesMainComp';
+import TablesMainComp from '../../containers/TablesModule/TablesMainContainer';
 // import { withHistory, Link } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import './layout.less';
 
 
 export default class MainPage extends Component {
@@ -37,18 +38,10 @@ export default class MainPage extends Component {
   }
 
   render() {
-    const style = {
-      backgroundImage: 'url("/images/games_background2.png")',
-      backgroundColor: 'darkgray',
-      height: '-webkit-fill-available',
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed',
-      backgroundBlendMode: 'hard-light',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center center',
-    };
+    const { authenticated } = this.props;
+    const backgroundStyle = authenticated ? 'background-auth' : 'background-public'
     return (
-      <div style={style}>
+      <div className={backgroundStyle}>
         <Container>
           <div>
             <Switch>
@@ -75,7 +68,7 @@ export default class MainPage extends Component {
     );
   }
 }
-//
-// MainPage.propTypes = {
-//   // username: React.PropTypes.string
-// };
+
+MainPage.propTypes = {
+  authenticated: PropTypes.bool.isRequired,
+};

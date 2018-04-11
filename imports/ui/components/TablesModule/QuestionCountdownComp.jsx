@@ -7,7 +7,7 @@ const QuestionCountdownComp = (props) => {
     <section id="question-countdown-area">
       <div className="container">
         <div className="row">
-          <div className="col-sm-12 text-center">Tyd: {props.timerCount}</div>
+          <div className="col-sm-12 text-center">Time: {props.timerCount}</div>
         </div>
       </div>
     </section>

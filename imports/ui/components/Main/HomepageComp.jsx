@@ -3,7 +3,7 @@ import './HomepageComp.less';
 
 const HomepageComp = (props) => {
   return (
-    <div className="HomepageComp-layout">
+    <div className="HomepageComp-layout background-public">
       <h1 className="text-center">
         Please login to enjoy our app!!
       </h1>

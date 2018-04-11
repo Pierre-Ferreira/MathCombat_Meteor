@@ -1,6 +1,7 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 import PropTypes from 'prop-types';
-import './GameSettingsComp.css';
+import './GameSettingsComp.less';
 
 class GameSettingsComp extends React.Component {
   constructor(props) {
@@ -40,17 +41,17 @@ class GameSettingsComp extends React.Component {
             <div className="row">
               <div className="col-lg-2 col-md-3 col-sm-4 offset-lg-3 offset-md-2">
                 <label htmlFor="tables-game-table">
-                  Tafel
+                  Table
                   <select
                     id="tables-game-table"
                     className="selectpicker"
                     onChange={this.handleTableChange}
                     value={this.state.gameTable}
                   >
-                    <optgroup label="Gemeng">
+                    <optgroup label="Mixed">
                       <option value="all">0 - 12</option>
                     </optgroup>
-                    <optgroup label="Tafel">
+                    <optgroup label="Table">
                       <option>12</option>
                       <option>11</option>
                       <option>10</option>
@@ -70,19 +71,19 @@ class GameSettingsComp extends React.Component {
               </div>
               <div className="col-lg-2 col-md-3 col-sm-4">
                 <label htmlFor="tables-game-type">
-                  x of ÷
+                  x or ÷
                   <select
                     className="selectpicker"
                     onChange={this.handleGameTypeChange}
                     value={this.state.gameType}
                   >
-                    <optgroup label="Maal">
+                    <optgroup label="Multiply">
                       <option value="pratice_plain_multiplication">x</option>
                     </optgroup>
-                    <optgroup label="Deel">
+                    <optgroup label="Division">
                       <option value="pratice_plain_division">÷</option>
                     </optgroup>
-                    <optgroup label="Gemeng">
+                    <optgroup label="Mixed">
                       <option value="practice_mixed_multiplication_division">x && ÷</option>
                     </optgroup>
                   </select>
@@ -90,7 +91,7 @@ class GameSettingsComp extends React.Component {
               </div>
               <div className="col-lg-2 col-md-3 col-sm-4">
                 <label htmlFor="tables-time-per-question">
-                  Tyd/Q
+                  Time/Q
                   <select
                     id="tables-time-per-question"
                     className="selectpicker"
@@ -107,11 +108,11 @@ class GameSettingsComp extends React.Component {
                       <option>6</option>
                       <option>5</option>
                     </optgroup>
-                    <optgroup label="Nogal tough">
+                    <optgroup label="Fairly tough">
                       <option>4</option>
                       <option>3</option>
                     </optgroup>
-                    <optgroup label="Baie tough">
+                    <optgroup label="Very tough">
                       <option>2</option>
                     </optgroup>
                     <optgroup label="Superhero!!">
@@ -122,14 +123,14 @@ class GameSettingsComp extends React.Component {
               </div>
             </div>
             <div className="row">
-              <div className="col-sm-12 text-center">
-                <button
+              <div className="col-sm-10 col-sm-offset-1 text-center">
+                <Button
                   type="submit"
-                  className="btn btn-info btn-lg btn-custom"
+                  className="btn btn-blue btn-lg btn-custom"
                   disabled={this.props.gameStartButtonDisabled}
                 >
                   {this.props.gameStartButtonText}
-                </button>
+                </Button>
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Sound from 'react-sound';
 import QuestionCountdownComp from './QuestionCountdownComp';
@@ -95,7 +95,7 @@ const generateNewQuestion = ({
   return questionGeneratedObj;
 };
 
-class MainQuestionComp extends React.Component {
+class MainQuestionComp extends Component {
   constructor(props) {
     super(props);
     this.handleAnswerSubmit = this.handleAnswerSubmit.bind(this);
@@ -132,6 +132,7 @@ class MainQuestionComp extends React.Component {
     // This method is called immediately before the component is removed
     // from the page and destroyed. We can clear the interval here:
     clearInterval(this.timer);
+    // this.props.clearGame();
   }
 
   tick() {
@@ -277,6 +278,7 @@ MainQuestionComp.propTypes = {
   saveGameScore: PropTypes.func.isRequired,
   updateCurrentAnswer: PropTypes.func.isRequired,
   endGame: PropTypes.func.isRequired,
+  clearGame: PropTypes.func.isRequired,
 };
 
 export default MainQuestionComp;
