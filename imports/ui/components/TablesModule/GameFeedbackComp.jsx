@@ -6,7 +6,6 @@ const GameFeedbackComp = (props) => {
   return (
     <section id="game-feedback-area">
       <GameScoreContainer />
-      <br />
       <QuestionsResultsContainer />
 
     </section>

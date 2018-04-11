@@ -32,7 +32,7 @@ class GameSettingsComp extends React.Component {
   }
   hangleGameSettingsSubmit(e) {
     e.preventDefault();
-    const gameNoOfQuestions = 5;
+    const gameNoOfQuestions = 20;
     const { gameTable, gameType, gameQuestionTime } = this.state;
     this.props.clearGame();
     this.props.saveGameSettings(gameNoOfQuestions, gameTable, gameType, gameQuestionTime);
