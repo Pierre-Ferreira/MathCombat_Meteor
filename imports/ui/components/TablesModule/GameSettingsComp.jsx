@@ -16,6 +16,11 @@ class GameSettingsComp extends React.Component {
       gameQuestionTime: 6,
     };
   }
+
+  componentWillUnmount() {
+    this.props.clearGame();
+  }
+
   handleTableChange(e) {
     this.setState({ gameTable: e.target.value });
   }
@@ -27,7 +32,7 @@ class GameSettingsComp extends React.Component {
   }
   hangleGameSettingsSubmit(e) {
     e.preventDefault();
-    const gameNoOfQuestions = 20;
+    const gameNoOfQuestions = 5;
     const { gameTable, gameType, gameQuestionTime } = this.state;
     this.props.clearGame();
     this.props.saveGameSettings(gameNoOfQuestions, gameTable, gameType, gameQuestionTime);

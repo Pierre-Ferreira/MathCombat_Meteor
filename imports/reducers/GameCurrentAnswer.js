@@ -9,8 +9,10 @@ const gameCurrentAnswer = (state = {}, action) => {
         currentAnswer: action.currentAnswer,
       };
     case types.CLEAR_GAME: {
-      state = {};
-      return state;
+      return {
+        ...state,
+        currentAnswer: '',
+      };
     }
     default:
       return state;

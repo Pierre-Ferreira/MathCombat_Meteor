@@ -42,6 +42,21 @@ const gameSettings = (state = initialState, action) => {
         gameStartButtonText: 'PLAY AGAIN!',
         gameStartButtonDisabled: false,
       };
+    case types.CLEAR_GAME: {
+      return {
+        ...state,
+        gameId: '',
+        gameNoOfQuestions: '',
+        gameTable: '',
+        gameUpperRangeLimit: '',
+        gameType: '',
+        gameQuestionTime: '',
+        gameInProgress: false,
+        gameStartButtonDisabled: false,
+        gameStartButtonText: 'PLAY',
+        displayWelcomeScreen: true,
+      };
+    }
     default:
       return state;
   }

@@ -23,7 +23,7 @@ const TablesMainComp = (props) => {
               onClick={() => closeButtonHandler(props)}
               disabled={props.gameStartButtonDisabled}
             >
-              x
+              BACK
             </Button>
           </div>
           <div className="modal-header">

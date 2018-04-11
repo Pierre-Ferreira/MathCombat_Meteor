@@ -132,7 +132,6 @@ class MainQuestionComp extends Component {
     // This method is called immediately before the component is removed
     // from the page and destroyed. We can clear the interval here:
     clearInterval(this.timer);
-    // this.props.clearGame();
   }
 
   tick() {
@@ -278,7 +277,6 @@ MainQuestionComp.propTypes = {
   saveGameScore: PropTypes.func.isRequired,
   updateCurrentAnswer: PropTypes.func.isRequired,
   endGame: PropTypes.func.isRequired,
-  clearGame: PropTypes.func.isRequired,
 };
 
 export default MainQuestionComp;
