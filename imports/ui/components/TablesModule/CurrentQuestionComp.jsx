@@ -23,10 +23,10 @@ class CurrentQuestionComp extends React.Component {
         <form onSubmit={this.props.onSubmitFn}>
           <div className="container">
             <div className="row">
-              <div className="col-sm-1 col-sm-offset-1 question-id-string" align="center">{this.props.questionId})</div>
-              <div className="col-sm-2" align="center">{this.props.questionOperand1}</div>
-              <div className="col-sm-1" align="center">{this.props.questionOperator}</div>
-              <div className="col-sm-2" align="center">{this.props.questionOperand2}</div>
+              <div className="col-sm-1 col-sm-offset-1 question-id-string">{this.props.questionId})</div>
+              <div className="col-sm-2">{this.props.questionOperand1}</div>
+              <div className="col-sm-1">{this.props.questionOperator}</div>
+              <div className="col-sm-2">{this.props.questionOperand2}</div>
               <div className="col-sm-1">=</div>
               <div className="col-sm-2">
                 <IntegerInputComp

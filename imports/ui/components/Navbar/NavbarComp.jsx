@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import AuthenticatedNavigationLinksContainer from '../../containers/Navbar/AuthenticatedNavigationLinksContainer';
 import PublicNavigationLinksContainer from '../../containers/Navbar/PublicNavigationLinksContainer';
-import './NavbarComp.css';
+import './NavbarComp.less';
 
 export default class NavbarComp extends Component {
   constructor(props) {

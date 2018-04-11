@@ -30,7 +30,6 @@ const GameOverComp = (props) => {
   let feedbackMessage = '';
   if (props.percentageCorrect < 90) {
     feedbackMessage = 'Oh no!, a kitten just died! :(';
-
   } else {
     feedbackMessage = 'Awesome!!!!';
   }

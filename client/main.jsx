@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import reducers from '../imports/reducers';
 import AppContainer from '../imports/ui/containers/Layout/AppContainer';
 import registerServiceWorker from './registerServiceWorker';
-import './main.css';
+import './main.less';
 
 // Create a history of your choosing (we're using a browser history in this case)
 export const history = createHistory();
