@@ -7,3 +7,4 @@ import '../../api/schools/publications';
 import '../../api/practice_plain_multiplication/methods';
 import '../../api/practice_plain_division/methods';
 import '../../api/practice_mixed_multiplication_division/methods';
+import '../../api/practice_plain_multiplication/publications'

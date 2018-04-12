@@ -13,8 +13,8 @@ import SchoolCreateComp from '../Admin/SchoolCreateComp';
 import SchoolEditComp from '../Admin/SchoolEditComp';
 import SchoolListContainer from '../../containers/Admin/SchoolListContainer';
 // Auth components.
-import HomepageComp from '../Main/HomepageComp';
-import WelcomeComp from '../../containers/Main/WelcomeContainer';
+import PublicHomepageComp from '../Main/PublicHomepageComp';
+import AuthHomepageComp from '../Main/AuthHomepageComp';
 import SignupContainer from '../../containers/Auth/SignupContainer';
 import LoginContainer from '../../containers/Auth/LoginContainer';
 import ResetPasswordContainer from '../../containers/Auth/ResetPasswordContainer';
@@ -45,7 +45,7 @@ export default class MainPage extends Component {
         <Container>
           <div>
             <Switch>
-              <Route exact path="/" component={HomepageComp} />
+              <Route exact path="/" component={PublicHomepageComp} />
               <AuthenticatedRouteComp exact path="/main/player_select" component={PlayerSelectContainer} {...this.props} />
               <AuthenticatedRouteComp exact path="/main/player_list" component={PlayerListContainer} {...this.props} />
               <AuthenticatedRouteComp exact path="/main/player_create" component={PlayerCreateComp} {...this.props} />
@@ -58,7 +58,7 @@ export default class MainPage extends Component {
               <PublicRouteComp exact path="/auth/signup" component={SignupContainer} {...this.props} />
               <PublicRouteComp exact path="/auth/forgot_password" component={ForgotPasswordContainer} {...this.props} />
               <PublicRouteComp exact path="/auth/reset-password/:token" component={ResetPasswordContainer} {...this.props} />
-              <AuthenticatedPlayerRouteComp exact path="/main/welcome" component={WelcomeComp} {...this.props} />
+              <AuthenticatedPlayerRouteComp exact path="/main/welcome" component={AuthHomepageComp} {...this.props} />
               <AuthenticatedPlayerRouteComp exact path="/practice/modules/tables" component={TablesMainComp} {...this.props} />
               {/* <AuthenticatedPlayerRouteComp component={WelcomeComp} /> */}
             </Switch>

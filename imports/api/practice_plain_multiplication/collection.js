@@ -1,7 +1,7 @@
 import { Mongo } from 'meteor/mongo';
-import PraticePlainMultiplicationSchema from './schema';
+import PracticePlainMultiplicationSchema from './schema';
 
-const PraticePlainMultiplication = new Mongo.Collection('pratice_plain_multiplication');
+const PracticePlainMultiplication = new Mongo.Collection('practice_plain_multiplication');
 
-PraticePlainMultiplication.attachSchema(PraticePlainMultiplicationSchema);
-export default PraticePlainMultiplication;
+PracticePlainMultiplication.attachSchema(PracticePlainMultiplicationSchema);
+export default PracticePlainMultiplication;

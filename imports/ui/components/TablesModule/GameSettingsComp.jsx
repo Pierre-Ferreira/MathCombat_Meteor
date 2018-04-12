@@ -12,7 +12,7 @@ class GameSettingsComp extends React.Component {
     this.handleQuestionTimeChange = this.handleQuestionTimeChange.bind(this);
     this.state = {
       gameTable: 10,
-      gameType: 'pratice_plain_multiplication',
+      gameType: 'practice_plain_multiplication',
       gameQuestionTime: 6,
     };
   }
@@ -83,10 +83,10 @@ class GameSettingsComp extends React.Component {
                     value={this.state.gameType}
                   >
                     <optgroup label="Multiply">
-                      <option value="pratice_plain_multiplication">x</option>
+                      <option value="practice_plain_multiplication">x</option>
                     </optgroup>
                     <optgroup label="Division">
-                      <option value="pratice_plain_division">÷</option>
+                      <option value="practice_plain_division">÷</option>
                     </optgroup>
                     <optgroup label="Mixed">
                       <option value="practice_mixed_multiplication_division">x && ÷</option>

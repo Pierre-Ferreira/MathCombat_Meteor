@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // import route from '/imports/routing/router.js';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import moment from "moment/moment";
+import moment from 'moment/moment';
 
 export default class SchoolListComp extends Component {
   constructor(props) {

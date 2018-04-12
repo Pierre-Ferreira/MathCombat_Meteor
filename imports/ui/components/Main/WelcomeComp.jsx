@@ -4,10 +4,11 @@ import './WelcomeComp.less';
 
 const WelcomeComp = (props) => {
   return (
-    <div className="WelcomeComp-layout">
-      <h1 className="text-center">
+    <div id="welcome-comp-layout">
+      <h1 className="heading">
         Welcome {props.playerName} {props.playerSurname}
       </h1>
+      <div className="heading line">_____________</div>
     </div>
   );
 };

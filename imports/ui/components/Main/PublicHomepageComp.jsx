@@ -1,9 +1,9 @@
 import React from 'react';
-import './HomepageComp.less';
+import './PublicHomepageComp.less';
 
-const HomepageComp = (props) => {
+const PublicHomepageComp = (props) => {
   return (
-    <div className="HomepageComp-layout background-public">
+    <div className="public-homepage-layout background-public">
       <h1 className="text-center">
         Please login to enjoy our app!!
       </h1>
@@ -15,4 +15,4 @@ const HomepageComp = (props) => {
 //
 // };
 
-export default HomepageComp;
+export default PublicHomepageComp;

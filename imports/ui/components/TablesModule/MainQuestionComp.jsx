@@ -73,10 +73,10 @@ const generateNewQuestion = ({
     gameTable,
   };
   let questionGeneratedObj = {};
-  if (gameType === 'pratice_plain_multiplication') {
+  if (gameType === 'practice_plain_multiplication') {
     // Create a multiplication question.
     questionGeneratedObj = generateMultiplicationQuestion(questionGeneratorArguments);
-  } else if (gameType === 'pratice_plain_division') {
+  } else if (gameType === 'practice_plain_division') {
     // Create a division question.
     questionGeneratedObj = generatedDivisionQuestion(questionGeneratorArguments);
   } else if (gameType === 'practice_mixed_multiplication_division') {

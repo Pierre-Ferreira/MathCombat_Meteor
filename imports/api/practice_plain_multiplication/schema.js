@@ -1,6 +1,6 @@
 import SimpleSchema from 'simpl-schema';
 
-const PraticePlainMultiplicationSchema = new SimpleSchema({
+const PracticePlainMultiplicationSchema = new SimpleSchema({
   playerID: {
     type: String,
     optional: false,
@@ -68,4 +68,4 @@ const PraticePlainMultiplicationSchema = new SimpleSchema({
   },
 });
 
-export default PraticePlainMultiplicationSchema;
+export default PracticePlainMultiplicationSchema;

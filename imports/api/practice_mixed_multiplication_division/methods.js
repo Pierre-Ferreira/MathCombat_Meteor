@@ -5,7 +5,7 @@ import './hooks';
 Meteor.methods({
   'practice_mixed_multiplication_division.create': (data) => {
     if (!Meteor.userId()) {
-      throw new Meteor.Error('error', 'Cannot create a new PraticePlainMultiplication entry.', {
+      throw new Meteor.Error('error', 'Cannot create a new PracticePlainMultiplication entry.', {
         why: 'User not logged in',
       });
     } else {
