@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import FormFeedbackMessageComp from '../Misc/FormFeedbackMessageComp';
-import './PlayerSelectComp.css';
+import './PlayerSelectComp.less';
 
 export default class PlayerSelectComp extends Component {
   constructor(props) {
@@ -75,7 +75,7 @@ export default class PlayerSelectComp extends Component {
     const { players } = this.props;
     const { feedbackMessageType, feedbackMessage } = this.state;
     return (
-      <div className="modal show">
+      <div className="modal show player-select-comp-modal">
         <div className="modal-dialog">
           <div className="modal-content container-fluid">
             <div className="modal-header">

@@ -29,40 +29,38 @@ export default class AuthenticatedNavigationLinksComp extends Component {
 
   render() {
     return (
-      // <div id="auth-nav-links-comp">
-        <Nav className="ml-auto" navbar>
-          <UncontrolledDropdown className="auth-navbar-main-options" nav inNavbar>
-            <DropdownToggle color="success" nav caret>
-              Modules
-            </DropdownToggle>
-            <DropdownMenu >
-              <DropdownItem>
-                <NavLink to="/practice/modules/tables" style={{ textDecoration: 'none', color: 'black' }}>
-                  x en ÷
-                </NavLink>
-              </DropdownItem>
-              <DropdownItem >
-                <NavLink to="/practice/modules/sums" style={{ textDecoration: 'none', color: 'black' }}>
-                + en -
-                </NavLink>
-              </DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem>
-                PEMDAS
-              </DropdownItem>
-              <DropdownItem>
-                Tyd
-              </DropdownItem>
-            </DropdownMenu>
-          </UncontrolledDropdown>
-          <NavItem className="auth-navbar-main-options">
-            <NavLink to="/admin/school_list">Schools</NavLink>
-          </NavItem>
-          <NavItem className="auth-navbar-main-options">
-            <NavLink to="" onClick={this.logoutFN}>Logout</NavLink>
-          </NavItem>
-        </Nav>
-      // </div>
+      <Nav className="ml-auto" navbar>
+        <UncontrolledDropdown className="auth-navbar-main-options" nav inNavbar>
+          <DropdownToggle color="success" nav caret>
+            Modules
+          </DropdownToggle>
+          <DropdownMenu >
+            <DropdownItem>
+              <NavLink to="/practice/modules/tables">
+                x or ÷
+              </NavLink>
+            </DropdownItem>
+            <DropdownItem >
+              <NavLink to="/practice/modules/sums">
+              + or -
+              </NavLink>
+            </DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem>
+              PEMDAS
+            </DropdownItem>
+            <DropdownItem>
+              Tyd
+            </DropdownItem>
+          </DropdownMenu>
+        </UncontrolledDropdown>
+        <NavItem className="auth-navbar-main-options">
+          <NavLink to="/admin/school_list">Schools</NavLink>
+        </NavItem>
+        <NavItem className="auth-navbar-main-options">
+          <NavLink to="" onClick={this.logoutFN}>Logout</NavLink>
+        </NavItem>
+      </Nav>
     );
   }
 }
