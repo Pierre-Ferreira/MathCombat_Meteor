@@ -1,0 +1,58 @@
+#game-results-modal {
+  @media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 500px;
+    }
+  }
+  .btn-danger {
+    border-color: #46fbfa;
+    font-size: smaller;
+  }
+  .modal-dialog .modal-content {
+    background-color: #03101d;
+    color: yellow;
+    text-shadow: 1px 1px 10px cyan;
+    box-shadow: 0px 0px 15px 1px magenta;
+  }
+  .game-info-string {
+    font-size: x-large;
+    text-align: -webkit-center;
+  }
+  .game-date-string {
+    font-size: x-small;
+    text-align: -webkit-center;
+  }
+  .game-answers {
+    width:auto;
+    overflow-y:scroll;
+    position:relative;
+    height: 400px;
+  }
+  .correct-answer {
+    text-shadow: 1px 1px 10px fuchsia;
+    color: cyan;
+  }
+  .incorrect-answer {
+    text-shadow: 1px 1px 8px cyan;
+    color: fuchsia;
+  }
+  .game-answers::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  .game-answers::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  }
+
+  .game-answers::-webkit-scrollbar-thumb {
+    background-color: fuchsia;
+    outline: 2px solid cyan;
+  }
+  hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 5px solid yellow;
+    box-shadow: 0px 0px 15px 1px magenta;
+  }
+}

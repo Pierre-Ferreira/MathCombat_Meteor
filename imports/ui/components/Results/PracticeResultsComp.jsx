@@ -1,17 +1,38 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'reactstrap';
 import moment from 'moment/moment';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import GameResultsModal from './GameResultsModal';
 import './PracticeResultsComp.less';
 
 export default class PracticeResultsComp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // feedbackMessage: '',
-      // feedbackMessageType: '',
+      isOpen: false,
     };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  openModal(modalProps) {
+    this.setState({
+      isOpen: true,
+      resultCnt: modalProps.resultCnt,
+      gameType: modalProps.gameType,
+      createdAt: modalProps.createdAt,
+      gameQuestionTime: modalProps.gameQuestionTime,
+      gameTable: modalProps.gameTable,
+      percentageCorrect: modalProps.percentageCorrect,
+      gameAnswers: modalProps.gameAnswers,
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      isOpen: false,
+    });
   }
 
   render() {
@@ -21,7 +42,6 @@ export default class PracticeResultsComp extends Component {
         <ul>
           {PracticePlainMultiplicationCursor.map((result, i, arr) => {
             const resultCnt = arr.length - i;
-            // const gameType = result.
             let gameType = '';
             switch (result.gameType) {
               case 'practice_plain_multiplication':
@@ -36,15 +56,43 @@ export default class PracticeResultsComp extends Component {
               default:
                 gameType = 'N/A';
             }
-            const resultDate = moment(result.createdAt).format('DD/MM');
+            const resultDate = moment(result.createdAt).format('DDMMM');
             const resultStr = `${resultCnt}. ${resultDate} ${result.gameTable}${gameType} ${result.gameQuestionTime}s/Q ${result.percentageCorrect}%`;
+            const modalProps = {
+              resultCnt,
+              gameType,
+              createdAt: result.createdAt,
+              gameQuestionTime: result.gameQuestionTime,
+              gameTable: result.gameTable,
+              percentageCorrect: result.percentageCorrect,
+              gameAnswers: result.gameAnswers,
+            }
             return (
-              <li>
-                <div className="result-string">{resultStr}</div>
+              <li key={resultCnt}>
+                <div
+                  role="button"
+                  // tabIndex={0}
+                  className="result-string"
+                  onClick={() => this.openModal(modalProps)}
+                  // onKeyPress={this.toggleModal}
+                >
+                  {resultStr}
+                </div>
               </li>
             );
           })}
         </ul>
+        <GameResultsModal
+          isOpen={this.state.isOpen}
+          closeModal={this.closeModal}
+          resultCnt={this.state.resultCnt}
+          gameType={this.state.gameType}
+          createdAt={this.state.createdAt}
+          gameQuestionTime={this.state.gameQuestionTime}
+          gameTable={this.state.gameTable}
+          percentageCorrect={this.state.percentageCorrect}
+          gameAnswers={this.state.gameAnswers}
+        />
       </div>
     );
   }
