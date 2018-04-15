@@ -25,6 +25,7 @@ import AuthenticatedPlayerRouteComp from '../Routes/AuthenticatedPlayerRouteComp
 import PublicRouteComp from '../Routes/PublicRouteComp';
 // Module components.
 import TablesMainComp from '../../containers/TablesModule/TablesMainContainer';
+import SumsMainComp from '../../containers/SumsModule/SumsMainContainer';
 // import { withHistory, Link } from 'react-router-dom';
 import './layout.less';
 
@@ -60,6 +61,7 @@ export default class MainPage extends Component {
               <PublicRouteComp exact path="/auth/reset-password/:token" component={ResetPasswordContainer} {...this.props} />
               <AuthenticatedPlayerRouteComp exact path="/main/welcome" component={AuthHomepageComp} {...this.props} />
               <AuthenticatedPlayerRouteComp exact path="/practice/modules/tables" component={TablesMainComp} {...this.props} />
+              <AuthenticatedPlayerRouteComp exact path="/practice/modules/sums" component={SumsMainComp} {...this.props} />
               {/* <AuthenticatedPlayerRouteComp component={WelcomeComp} /> */}
             </Switch>
           </div>
