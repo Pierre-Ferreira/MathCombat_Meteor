@@ -48,13 +48,12 @@ const emailResultToParent = (props) => {
   const resultSummaryStr = `${props.playerName}: ${resultDate} ${props.gameTable}${gameType} ${props.gameQuestionTime}s/Q ${props.percentageCorrect}%`;
   const gameAnswersStr = props.gameAnswers.sort((a, b) => {
     return a.questionId - b.questionId;
-  }).reduce((answerStr, answer, i, a) => {
+  }).reduce((answerStr, answer) => {
     answerStr += `${answer.questionId}) ${answer.questionOperand1}${answer.questionOperator}${answer.questionOperand2}=${answer.answerGiven}`;
     answerStr += answer.answeredCorrectly ? '' : `(${answer.correctAnswer})`;
     answerStr += '\n';
     return answerStr;
-  },'');
-  console.log('gameAnswersStr:',gameAnswersStr)
+  }, '');
   Meteor.call(
     'sendResultsToParents',
     props.parentEmail,
@@ -62,7 +61,7 @@ const emailResultToParent = (props) => {
     resultSummaryStr,
     gameAnswersStr,
   );
-}
+};
 
 const GameOverComp = (props) => {
   writeGameToDB(props);
