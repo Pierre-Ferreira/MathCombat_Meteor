@@ -11,7 +11,7 @@ class GameSettingsComp extends React.Component {
     this.handleQuestionTimeChange = this.handleQuestionTimeChange.bind(this);
     this.state = {
       gameUpperRangeLimit: 30,
-      gameType: 'plain_addition',
+      gameType: 'practice_plain_addition',
       gameQuestionTime: 6,
     };
   }
@@ -49,13 +49,13 @@ class GameSettingsComp extends React.Component {
                     value={this.state.gameType}
                   >
                     <optgroup label="Optel">
-                      <option value="plain_addition">+</option>
+                      <option value="practice_plain_addition">+</option>
                     </optgroup>
                     <optgroup label="Aftrek">
-                      <option value="plain_subtraction">-</option>
+                      <option value="practice_plain_subtraction">-</option>
                     </optgroup>
                     <optgroup label="Gemeng">
-                      <option value="mixed_addition_subtraction">+ && -</option>
+                      <option value="practice_mixed_addition_subtraction">+ && -</option>
                     </optgroup>
                   </select>
                 </label>

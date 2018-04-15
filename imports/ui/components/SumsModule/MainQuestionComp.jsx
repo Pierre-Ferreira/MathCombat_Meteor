@@ -53,13 +53,13 @@ const generateNewQuestion = ({
     gameUpperRangeLimit,
   };
   let questionGeneratedObj = {};
-  if (gameType === 'plain_addition') {
+  if (gameType === 'practice_plain_addition') {
     // Create a addition question.
     questionGeneratedObj = generateAdditionQuestion(questionGeneratorArguments);
-  } else if (gameType === 'plain_subtraction') {
+  } else if (gameType === 'practice_plain_subtraction') {
     // Create a subraction question.
     questionGeneratedObj = generatedSubtractQuestion(questionGeneratorArguments);
-  } else if (gameType === 'mixed_addition_subtraction') {
+  } else if (gameType === 'practice_mixed_addition_subtraction') {
     // Generate random operands with a random operator within the given limits.
     const randomBoolean = Math.floor(Math.random() * 2);
     if (randomBoolean) {

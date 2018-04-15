@@ -11,11 +11,11 @@ const gameTypeHeaderStyle = {
 // const GameFeedbackComp = (props) => {
 const GameFeedbackComp = (props) => {
   let gameTypeDesc = '';
-  if (props.gameType === 'plain_addition') {
+  if (props.gameType === 'practice_plain_addition') {
     gameTypeDesc = 'Optel';
-  } else if (props.gameType === 'plain_subtraction') {
+  } else if (props.gameType === 'practice_plain_subtraction') {
     gameTypeDesc = 'Aftrek';
-  } else if (props.gameType === 'mixed_addition_subtraction') {
+  } else if (props.gameType === 'practice_mixed_addition_subtraction') {
     gameTypeDesc = 'Optel en Aftrek gemeng';
   } else {
     gameTypeDesc = '';

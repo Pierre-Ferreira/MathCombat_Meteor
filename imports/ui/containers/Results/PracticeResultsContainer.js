@@ -1,9 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import { connect } from 'react-redux-meteor';
 import PracticeResultsComp from '../../components/Results/PracticeResultsComp';
-import PracticePlainMultiplication from '../../../api/practice_plain_multiplication/collection';
-import PraticePlainDivision from '../../../api/practice_plain_division/collection';
-import PracticeMixedMultiplicationDivision from '../../../api/practice_mixed_multiplication_division/collection';
+import PracticePlainMultiplication from '../../../api/tables_module/practice_plain_multiplication/collection';
+import PraticePlainDivision from '../../../api/tables_module/practice_plain_division/collection';
+import PracticeMixedMultiplicationDivision from '../../../api/tables_module/practice_mixed_multiplication_division/collection';
 
 const mapTrackerToProps = (state, props) => {
   const playerID = state.playerInfo._id;
