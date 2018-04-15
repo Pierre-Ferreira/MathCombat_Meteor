@@ -10,7 +10,7 @@ const PracticeMixedMultiplicationDivisionSchema = new SimpleSchema({
     optional: false,
   },
   gameTable: {
-    type: SimpleSchema.Integer,
+    type: String,
     optional: false,
   },
   gameNoOfQuestions: {

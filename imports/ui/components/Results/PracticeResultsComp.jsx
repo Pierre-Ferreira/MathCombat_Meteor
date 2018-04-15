@@ -36,23 +36,26 @@ export default class PracticeResultsComp extends Component {
   }
 
   render() {
-    const { PracticePlainMultiplicationCursor } = this.props; // This needs to include all practice game types not just multiplication.
+    const { PracticeResultsCursor } = this.props; // This needs to include all practice game types not just multiplication.
     return (
       <div id="practice-results-comp">
         <ul>
-          {PracticePlainMultiplicationCursor.map((result, i, arr) => {
+          {PracticeResultsCursor.map((result, i, arr) => {
             const resultCnt = arr.length - i;
             let gameType = '';
             switch (result.gameType) {
               case 'practice_plain_multiplication':
                 gameType = 'x';
                 break;
-              case 'practice_plain_divistion':
+              case 'practice_plain_division':
                 gameType = '÷';
                 break;
               case 'practice_mixed_multiplication_division':
-                gameType = 'x && ÷';
+                gameType = 'mix';
                 break;
+              case 'practice_mixed_all':
+                gameType = ' mix';
+              break;
               default:
                 gameType = 'N/A';
             }
@@ -99,6 +102,6 @@ export default class PracticeResultsComp extends Component {
 }
 
 PracticeResultsComp.propTypes = {
-  PracticePlainMultiplicationCursor: PropTypes.arrayOf.isRequired,
+  PracticeResultsCursor: PropTypes.arrayOf.isRequired,
   // push: PropTypes.func.isRequired,
 };

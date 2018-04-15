@@ -11,6 +11,8 @@ function mapStateToProps(state) {
     gameQuestionTime: state.gameSettings.gameQuestionTime,
     gameAnswers: state.gameAnswers,
     playerID: state.playerInfo._id,
+    playerName: state.playerInfo.name,
+    parentEmail: Meteor.user().emails[0].address,
   };
 }
 
