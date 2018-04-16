@@ -41,20 +41,20 @@ class GameSettingsComp extends React.Component {
             <div className="row">
               <div className="col-lg-2 col-md-3 col-sm-4 offset-lg-3 offset-md-2">
                 <label htmlFor="sums-game-type">
-                  + of -
+                  + or -
                   <select
                     id="sums-game-type"
                     className="selectpicker"
                     onChange={this.handleGameTypeChange}
                     value={this.state.gameType}
                   >
-                    <optgroup label="Optel">
+                    <optgroup label="Addition">
                       <option value="practice_plain_addition">+</option>
                     </optgroup>
-                    <optgroup label="Aftrek">
+                    <optgroup label="Subtraction">
                       <option value="practice_plain_subtraction">-</option>
                     </optgroup>
-                    <optgroup label="Gemeng">
+                    <optgroup label="Mixed">
                       <option value="practice_mixed_addition_subtraction">+ && -</option>
                     </optgroup>
                   </select>
@@ -62,14 +62,14 @@ class GameSettingsComp extends React.Component {
               </div>
               <div className="col-lg-2 col-md-3 col-sm-4">
                 <label htmlFor="sums-upper-range-limit">
-                  Bo Limiet
+                  Upper Limit
                   <select
                     id="sums-upper-range-limit"
                     className="selectpicker"
                     onChange={this.handleUpperRangeLimitChange}
                     value={this.state.gameUpperRangeLimit}
                   >
-                    <optgroup label="Bo Limiet">
+                    <optgroup label="Upper Limit">
                       <option>10</option>
                       <option>15</option>
                       <option>20</option>
@@ -83,7 +83,7 @@ class GameSettingsComp extends React.Component {
               </div>
               <div className="col-lg-2 col-md-3 col-sm-4">
                 <label htmlFor="sums-time-per-question">
-                  Tyd/Q
+                  Time/Q
                   <select
                     id="sums-time-per-question"
                     className="selectpicker"
@@ -100,11 +100,11 @@ class GameSettingsComp extends React.Component {
                       <option>6</option>
                       <option>5</option>
                     </optgroup>
-                    <optgroup label="Nogal tough">
+                    <optgroup label="Fairly tough">
                       <option>4</option>
                       <option>3</option>
                     </optgroup>
-                    <optgroup label="Baie tough">
+                    <optgroup label="Very tough">
                       <option>2</option>
                     </optgroup>
                     <optgroup label="Superhero!!">

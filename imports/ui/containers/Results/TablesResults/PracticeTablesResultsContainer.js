@@ -1,14 +1,14 @@
 import { Meteor } from 'meteor/meteor';
 import { connect } from 'react-redux-meteor';
-import PracticeResultsComp from '../../components/Results/PracticeResultsComp';
-import PracticePlainMultiplication from '../../../api/tables_module/practice_plain_multiplication/collection';
-import PraticePlainDivision from '../../../api/tables_module/practice_plain_division/collection';
-import PracticeMixedMultiplicationDivision from '../../../api/tables_module/practice_mixed_multiplication_division/collection';
+import PracticeTablesResultsComp from '../../../components/Results/TablesResults/PracticeTablesResultsComp';
+import PracticePlainMultiplication from '../../../../api/tables_module/practice_plain_multiplication/collection';
+import PraticePlainDivision from '../../../../api/tables_module/practice_plain_division/collection';
+import PracticeMixedMultiplicationDivision from '../../../../api/tables_module/practice_mixed_multiplication_division/collection';
 
 const mapTrackerToProps = (state, props) => {
   const playerID = state.playerInfo._id;
   // Subscribe to the practice game results publication.
-  const handle = Meteor.subscribe('practice_games_results', playerID);
+  const handle = Meteor.subscribe('practice_tables_results', playerID);
   // Fetch the multiplication practice result. Always be specific in your subsription fetch!
   const PracticePlainMultiplicationCursor = PracticePlainMultiplication.find({ playerID }).fetch();
   // Fetch the division practice result.  Always be specific in your subsription fetch!
@@ -44,4 +44,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapTrackerToProps, mapStateToProps, mapDispatchToProps)(PracticeResultsComp);
+export default connect(mapTrackerToProps, mapStateToProps, mapDispatchToProps)(PracticeTablesResultsComp);

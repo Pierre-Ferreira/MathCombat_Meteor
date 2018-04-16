@@ -6,8 +6,8 @@ import './GameScoreComp.css';
 const GameScoreComp = (props) => {
   return (
     <section id="game-score-area">
-      <div>Korrek: {props.numberOfCorrect} </div>
-      <div> Persentasie: {props.percentageCorrect}% </div>
+      <div>Correct: {props.numberOfCorrect} </div>
+      <div> Percentage: {props.percentageCorrect}% </div>
     </section>
   );
 };

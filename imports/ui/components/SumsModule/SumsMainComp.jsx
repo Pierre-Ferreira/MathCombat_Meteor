@@ -27,7 +27,7 @@ const SumsMainComp = (props) => {
             </Button>
           </div>
           <div className="modal-header">
-            <h1 className="text-center">Tables Practice</h1>
+            <h1 className="text-center">Sums Practice</h1>
           </div>
           <div id="table-main-container-area">
             <div className="row">

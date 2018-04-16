@@ -15,4 +15,5 @@ import '../../api/sums_module/practice_plain_subtraction/methods';
 import '../../api/sums_module/practice_plain_addition/methods';
 import '../../api/sums_module/practice_mixed_addition_subtraction/methods';
 // .
-import '../../api/multi_collections/player_practice_results';
+import '../../api/multi_collections/player_sums_practice_results';
+import '../../api/multi_collections/player_tables_practice_results';

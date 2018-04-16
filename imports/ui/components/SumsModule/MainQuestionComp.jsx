@@ -139,7 +139,8 @@ class MainQuestionComp extends React.Component {
     const { questionOperand2 } = this.state;
     const { correctAnswer } = this.state;
     const { questionOperator } = this.state;
-    const answerGiven = this.props.currentAnswer;
+    // If no answer was given then make it an underscore.
+    const answerGiven = (this.props.currentAnswer === '') ? '_' : this.props.currentAnswer;
     // Save the answer info.
     const answerObject = {
       questionId,

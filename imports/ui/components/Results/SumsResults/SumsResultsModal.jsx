@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import moment from 'moment-timezone';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import './GameResultsModal.less';
+import './SumsResultsModal.less';
 
 class GameResultsModal extends React.Component {
   constructor(props) {
@@ -23,15 +23,15 @@ class GameResultsModal extends React.Component {
       resultCnt,
       gameType,
       gameQuestionTime,
-      gameTable,
+      gameUpperRangeLimit,
       percentageCorrect,
       gameAnswers,
     } = this.props;
     const resultDate = moment.tz(createdAt, 'Africa/Johannesburg').format("DDMMM[']YY hh:mma");
-    const gameInfoStr = `${resultCnt}. ${gameTable}${gameType} ${gameQuestionTime}s/Q ${percentageCorrect}%`;
+    const gameInfoStr = `${resultCnt}. ${gameUpperRangeLimit}(${gameType}) ${gameQuestionTime}s/Q ${percentageCorrect}%`;
     return (
       <div id="game-results-modal">
-        <div className={modalClass} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className={modalClass}>
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <Button color="danger" className="pull-right" onClick={() => this.props.closeModal()}>BACK</Button>

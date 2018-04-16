@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment/moment';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import GameResultsModal from './GameResultsModal';
-import './PracticeResultsComp.less';
+import GameResultsModal from './SumsResultsModal';
+import './PracticeSumsResultsComp.less';
 
 export default class PracticeResultsComp extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ export default class PracticeResultsComp extends Component {
       gameType: modalProps.gameType,
       createdAt: modalProps.createdAt,
       gameQuestionTime: modalProps.gameQuestionTime,
-      gameTable: modalProps.gameTable,
+      gameUpperRangeLimit: modalProps.gameUpperRangeLimit,
       percentageCorrect: modalProps.percentageCorrect,
       gameAnswers: modalProps.gameAnswers,
     });
@@ -44,29 +44,26 @@ export default class PracticeResultsComp extends Component {
             const resultCnt = arr.length - i;
             let gameType = '';
             switch (result.gameType) {
-              case 'practice_plain_multiplication':
-                gameType = 'x';
+              case 'practice_plain_addition':
+                gameType = '+';
                 break;
-              case 'practice_plain_division':
-                gameType = '÷';
+              case 'practice_plain_subtraction':
+                gameType = '-';
                 break;
-              case 'practice_mixed_multiplication_division':
+              case 'practice_mixed_addition_subtraction':
                 gameType = 'mix';
                 break;
-              case 'practice_mixed_all':
-                gameType = ' mix';
-              break;
               default:
                 gameType = 'N/A';
             }
             const resultDate = moment(result.createdAt).format('DDMMM');
-            const resultStr = `${resultCnt}. ${resultDate} ${result.gameTable}${gameType} ${result.gameQuestionTime}s/Q ${result.percentageCorrect}%`;
+            const resultStr = `${resultCnt}. ${resultDate} ${result.gameUpperRangeLimit}(${gameType}) ${result.gameQuestionTime}s/Q ${result.percentageCorrect}%`;
             const modalProps = {
               resultCnt,
               gameType,
               createdAt: result.createdAt,
               gameQuestionTime: result.gameQuestionTime,
-              gameTable: result.gameTable,
+              gameUpperRangeLimit: result.gameUpperRangeLimit,
               percentageCorrect: result.percentageCorrect,
               gameAnswers: result.gameAnswers,
             }
@@ -92,7 +89,7 @@ export default class PracticeResultsComp extends Component {
           gameType={this.state.gameType}
           createdAt={this.state.createdAt}
           gameQuestionTime={this.state.gameQuestionTime}
-          gameTable={this.state.gameTable}
+          gameUpperRangeLimit={this.state.gameUpperRangeLimit}
           percentageCorrect={this.state.percentageCorrect}
           gameAnswers={this.state.gameAnswers}
         />
