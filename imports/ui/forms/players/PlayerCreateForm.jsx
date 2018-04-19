@@ -5,8 +5,7 @@ import { Button } from 'reactstrap';
 import PlayersSchema from '../../../api/players/schema';
 import '../CustomUniForm.less';
 
-const CreateField = props =>
-  // <SubmitField value="Create" />;
+const CreateField = () =>
   <Button className="btn-blue btn-form-update" size="lg" block >Add</Button>;
 
 const PlayerCreateForm = ({ onSubmit, model = {} }) => (

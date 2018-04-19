@@ -15,6 +15,11 @@ class GameSettingsComp extends React.Component {
       gameQuestionTime: 6,
     };
   }
+
+  componentWillUnmount() {
+    this.props.clearGame();
+  }
+
   handleUpperRangeLimitChange(e) {
     this.setState({ gameUpperRangeLimit: e.target.value });
   }

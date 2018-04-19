@@ -1,4 +1,9 @@
+import { Meteor } from 'meteor/meteor';
 import SimpleSchema from 'simpl-schema';
+import Schools from '../schools/collection';
+
+const schools = Schools.find({}).fetch();
+console.log('schools:',schools);
 
 const PlayersSchema = new SimpleSchema({
   name: {
@@ -15,10 +20,19 @@ const PlayersSchema = new SimpleSchema({
     type: String,
     label: 'School',
     optional: false,
+    allowedValues: ['Hennopspark', 'Piet Retief', 'Other'],
+    // allowedValues: () => {
+    //   schools.map(school => {
+    //     return school.name
+    //   });
+    // },
+    // autoform: {
+    //   options: ['Hens', 'Pens'],
+    // },
   },
   birthday: {
     type: Date,
-    label: 'Birthday',
+    label: 'Date of birth',
     optional: false,
   },
   grade: {

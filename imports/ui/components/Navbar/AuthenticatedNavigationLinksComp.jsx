@@ -28,11 +28,21 @@ export default class AuthenticatedNavigationLinksComp extends Component {
   }
 
   render() {
+    let adminLinks;
+    if (this.props.userIsAdmin) {
+      adminLinks = (
+        <NavItem className="auth-navbar-main-options">
+          <NavLink to="/admin/school_list">Schools</NavLink>
+        </NavItem>
+      );
+    } else {
+      adminLinks = null;
+    }
     return (
       <Nav className="ml-auto" navbar>
         <UncontrolledDropdown className="auth-navbar-main-options" nav inNavbar>
           <DropdownToggle color="success" nav caret>
-            Modules
+            Practice
           </DropdownToggle>
           <DropdownMenu >
             <DropdownItem>
@@ -47,16 +57,17 @@ export default class AuthenticatedNavigationLinksComp extends Component {
             </DropdownItem>
             <DropdownItem divider />
             <DropdownItem>
+              Sequences
+            </DropdownItem>
+            <DropdownItem>
               PEMDAS
             </DropdownItem>
             <DropdownItem>
-              Tyd
+              Fractions
             </DropdownItem>
           </DropdownMenu>
         </UncontrolledDropdown>
-        <NavItem className="auth-navbar-main-options">
-          <NavLink to="/admin/school_list">Schools</NavLink>
-        </NavItem>
+        {adminLinks}
         <NavItem className="auth-navbar-main-options">
           <NavLink to="" onClick={this.logoutFN}>Logout</NavLink>
         </NavItem>

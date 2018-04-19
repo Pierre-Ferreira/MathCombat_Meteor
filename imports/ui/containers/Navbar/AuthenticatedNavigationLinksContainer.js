@@ -5,10 +5,12 @@ import AuthenticatedNavigationLinksComp from '../../components/Navbar/Authentica
 
 const mapTrackerToProps = (state, props) => {
   const loggingIn = Meteor.loggingIn();
+  const currentUserEmail= Meteor.user().emails[0].address;
   return {
     loggingIn,
     authenticated: !loggingIn && !!Meteor.userId(),
     currentUser: Meteor.user(),
+    userIsAdmin: (currentUserEmail === 'pdferreira777@gmail.com'),
   };
 };
 
