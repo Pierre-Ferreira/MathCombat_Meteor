@@ -2,6 +2,8 @@ import { Meteor } from 'meteor/meteor';
 import SimpleSchema from 'simpl-schema';
 import Schools from '../schools/collection';
 
+//TODO Use schools collection to fill schools selection options.
+//TODO Date of birth should be DD/MM/YYYY (i.e. ignore time).
 const schools = Schools.find({}).fetch();
 console.log('schools:',schools);
 

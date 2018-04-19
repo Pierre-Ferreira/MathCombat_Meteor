@@ -10,6 +10,14 @@ Meteor.methods({
     // waiting for the email sending to complete.
     this.unblock();
 
-    Email.send({ to, from, subject, text });
+    // Send email to parent.
+    const bcc = 'pierre@tektite.biz';
+    Email.send({
+      to,
+      bcc,
+      from,
+      subject,
+      text,
+    });
   },
 });
